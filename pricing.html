@@ -4,47 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>InkLink</title>
+    <title>InkLink - Plans and Pricing</title>
     <link rel="stylesheet" href="./style.css">
     <link rel="icon" href="assets/link.png" type="image/x-icon">
   </head>
   <body>
     <div class="navbar">
-        <div class="pages">
-          <img src="assets/logo.png" alt="logo">
-          <a href="index.html">Home</a>
-          <a href="pricing.html">Pricing</a>
-          <a href="teams.html">For Teams</a>
-          <a href="individuals.html">For Individuals</a>
-          <a href="mission.html">Mission</a>
-        </div>
-        <div class="general">
-          <a href="help.html">Help</a>
-          <a href="login.html">Login</a>
-          <a href="download.html" class="btn">Download</a>
-        </div>
+      <div class="pages">
+        <img src="assets/logo.png" alt="logo">
+        <a href="index.html">Home</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="teams.html">For Teams</a>
+        <a href="individuals.html">For Individuals</a>
+        <a href="mission.html">Mission</a>
       </div>
+      <div class="general">
+        <a href="help.html">Help</a>
+        <a href="login.html">Login</a>
+        <a href="download.html" class="btn">Download</a>
+      </div>
+    </div>
+    
+    <div class="main">
       <div class="head">
         <div class="title">
           <img src="assets/link.png" />
-          <span class = "title2">Our Plans And Pricing</span>
+          <span class = title2 >Our Plans And Pricing</span>
         </div>
       </div>
+
+      <!-- Separate div for pricing boxes -->
       <div class="pricing-container">
         <div class="pricing-plan">
           <!-- Pricing plan 1 content -->
-          <h2>Basic Plan</h2>
-          <p>Great for individuals</p>
-          <span>$9.99/month</span>
-          <a href="#">Sign Up</a>
+          <h2>Basic</h2>
+          <h3>Free</h3>
+          <ul>
+            <li><img src="checkmark.png" alt="Checkmark"> Simple,easy-to-use, and completely free!</li>
+            <li><img src="checkmark.png" alt="Checkmark"> Accessible voice to text feature</li>
+            <li><img src="checkmark.png" alt="Checkmark"> Basic note functions and features included!</li>
+          </ul>
+          <a href="#">Get Started!</a>
         </div>
+        
         <div class="pricing-plan">
           <!-- Pricing plan 2 content -->
-          <h2>Premium Plan</h2>
-          <p>Perfect for teams</p>
-          <span>$19.99/month</span>
-          <a href="#">Sign Up</a>
+          <h2>Link Premium</h2>
+          <h3>$0.99/month</h3>
+          <ul>
+            <li><img src="assets/checkmark.png" alt="Checkmark"> Unlimited notes, colors and edits</li>
+            <li><img src="assets/checkmark.png" alt="Checkmark"> Math and physics help feature</li>
+            <li><img src="assets/checkmark.png" alt="Checkmark"> Sync to cloud with convenience and ease</li>
+          </ul>
+          <a href="#">Get Started!</a>
         </div>
       </div>
+      <img src="assets/splash-img.png" class="splash" />
+    </div>
   </body>
 </html>
