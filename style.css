@@ -10,7 +10,7 @@ body {
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid var(--border);
-    background-color: black;
+    padding-bottom: 5px;
 }
 
 .navbar a {
@@ -22,7 +22,8 @@ body {
     justify-content: flex-start;
     width: 60%;
     align-items: center;
-    gap: 24px;
+    gap: 36px;
+    font-family:'Roboto';
 }
 
 .general {
@@ -30,7 +31,7 @@ body {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    gap: 24px;
+    gap: 36px;
 }
 
 .head {
@@ -43,6 +44,7 @@ body {
     gap: 12px;
 }
 
+
 .title {
     display: flex;
     justify-content: flex-start;
@@ -51,18 +53,24 @@ body {
 
 .title > .title {
     font-size: 64px;
-    font-family: 'Roboto';
+    font-family: Arial, Helvetica, sans-serif;
 }
 
+.title > .title2 {
+    font-size: 64px;
+    font-family: Arial, Helvetica, sans-serif;
+}
 .title > img {
-    margin: -12px 0;
+    margin: -84px 0;
 }
 
 .description {
     width: 80%;
+    color:steelblue;
     display: inline;
-    font-size: 14px;
-    font-family: 'Roboto';
+    font-size: 15px;
+    font-family:Arial, Helvetica, sans-serif;
+    line-height: 1.5;
 }
 
 .actions {
@@ -85,27 +93,32 @@ body {
     background-color: var(--btn-primary-dark);
     color: white;
     border: none;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    align-items: center;
 }
 
 .signin {
     background-color: var(--btn-secondary);
     color: black;
     border: 2px solid black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    align-items: center;
 }
 
 .splash {
     position: fixed;
-    bottom: 0;
-    right: 0;
-    height: calc(100vh - 128px);
+    bottom: -10px;
+    right: -150px;
+    height: 93%;
+    width: 70%;
 }
 
 .phone {
     z-index: 10;
     position: fixed;
-    bottom: 48px;
-    right: 124px;
-    height: calc(90vh - 128px);
+    bottom: 25px;
+    right: 190px;
+    height: 80%;
 }
 
 .btn {
@@ -195,4 +208,29 @@ body {
     width: 80%;
     height: 28px;
     font-size: 20px;
+}
+
+.search-container {
+    float: right;
+    margin-right: 20px; /* Adjust the margin as needed */
+}
+
+.search-bar {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.upload-btn {
+    padding: 10px;
+    background-color: #4CAF50; /* Green background color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.upload-btn:hover {
+    background-color: #45a049; /* Darker green on hover */
 }
