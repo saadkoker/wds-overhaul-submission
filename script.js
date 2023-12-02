@@ -14,6 +14,14 @@ let currentID = 0;
 document.addEventListener("DOMContentLoaded", attachListeners);
 document.addEventListener("DOMContentLoaded", checkPage);
 
+// Add event listener for beforeunload
+window.addEventListener('beforeunload', saveNotes);
+
+function saveNotes() {
+    // Save notes to localStorage before leaving the page
+    localStorage.setItem('notes', JSON.stringify(notes));
+}
+
 function startSpeechToText() {
     const recognition = new webkitSpeechRecognition() || new SpeechRecognition();
     
@@ -28,9 +36,9 @@ function startSpeechToText() {
     recognition.onresult = (event) => {
         const transcript = event.results[0][0].transcript;
         
-        // Insert the transcribed text into the current notes content
+        // Append the transcribed text to the current notes content
         if (currentNote) {
-            currentNote.content = transcript;
+            currentNote.content += transcript;  // Use += to append
             updateTextareaContent();
         }
         
@@ -139,6 +147,35 @@ function checkPage() {
         window.location = 'notes.html';
     if (window.location.href.includes('notes.html') && !username)
         window.location = 'login.html';
+
+    // Load notes from localStorage on page load
+    if (window.location.href.includes('notes.html')) {
+        const savedNotes = localStorage.getItem('notes');
+        if (savedNotes) {
+            notes = JSON.parse(savedNotes);
+
+            // Rebuild the note buttons in the UI
+            rebuildNoteButtons();
+        }
+    }
+}
+
+// Add a function to rebuild note buttons in the UI
+function rebuildNoteButtons() {
+    const filebar = document.querySelector('.files');
+    filebar.innerHTML = ''; // Clear existing buttons
+
+    for (let i = 0; i < notes.length; i++) {
+        const note = notes[i];
+        const id = i.toString();
+
+        note.button = document.createElement('button');
+        note.button.setAttribute("id", id);
+        note.button.setAttribute("class", "note");
+        note.button.textContent = note.title;
+        note.button.addEventListener('click', () => editTextArea(note));
+        filebar.appendChild(note.button);
+    }
 }
 
 function login(event) {
