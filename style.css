@@ -54,12 +54,12 @@ body {
 
 .title > .title {
     font-size: 64px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Roboto";
 }
 
 .title > .title2 {
     font-size: 48px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Roboto";
 
 }
 .title > img {
@@ -72,7 +72,7 @@ body {
     color:steelblue;
     display: inline;
     font-size: 15px;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:'Roboto';
     line-height: 1.5;
 }
 
@@ -96,7 +96,7 @@ body {
     background-color: var(--btn-primary-dark);
     color: white;
     border: none;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family:'Roboto';
     align-items: center;
 }
 
@@ -104,7 +104,7 @@ body {
     background-color: var(--btn-secondary);
     color: black;
     border: 2px solid black;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Roboto';
     align-items: center;
 }
 
@@ -115,6 +115,7 @@ body {
     height: 93%;
     width: 70%;
     z-index: -5;
+    opacity: 0.5;
 }
 
 .phone {
@@ -247,32 +248,47 @@ body {
 }
   
 .pricing-container {
-display: flex;
-justify-content: center;
-margin-top: 60px;
-background-color: #f2f2f2; /* Light grey background */
-padding: 20px; /* Adjust as needed */
-border-radius: 10px; /* Optional: Rounded corners */
-width: 70%;
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+    background-color: #f2f2f2; /* Light grey background */
+    padding: 20px; /* Adjust as needed */
+    border-radius: 10px; /* Optional: Rounded corners */
+    width: 70%;
 }
 
 .pricing-plan {
-width: 45%;
-padding: 100px;
-background-color: white;
-margin: 0 10px; /* Adjust spacing between boxes */
-border-radius: 8px; /* Optional: Rounded corners */
-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Box shadow for a subtle lift */
-line-height: 1.6;
+    width: 45%;
+    padding: 100px;
+    background-color: white;
+    margin: 0 10px; /* Adjust spacing between boxes */
+    border-radius: 8px; /* Optional: Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Box shadow for a subtle lift */
+    line-height: 2;
 }
 
 .pricing-plan h2 {
-    color: #333;
+    color: #000;
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Roboto;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 66px; /* 183.333% */
+    letter-spacing: 1px;
   }
   
 .pricing-plan h3 {
-    color: #666;
-    margin-top: 10px;
+    color: #7B7B7B;
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Roboto;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 66px; /* 206.25% */
+    letter-spacing: 1px;
   }
   
 .pricing-plan ul {
@@ -282,26 +298,35 @@ line-height: 1.6;
   }
   
 .pricing-plan li {
-    color: #777;
-    margin-bottom: 8px;
+    color: var(--colour-main-blue-500, #505F98);
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Roboto;
+    font-size: 110%;
+    font-style: normal;
+    font-weight: 400;
+    margin-bottom: 12px; /* Increase margin between list items */
     display: flex;
     align-items: center;
+    font-family:'Roboto';
   }
   
 .pricing-plan li img {
-    margin-right: 10px;
+    margin-right: 20px;
   }
 
 .pricing-plan a {
-color: #333; /* Text color inside the white boxes */
+    color: #333; 
+    font-family:'Roboto';
 }
 
 .pricing-plan a {
-display: block;
-margin-top: 15px;
-padding: 10px;
-background-color:#111b47;
-color: white;
-text-decoration: none;
-border-radius: 5px;
+    display: block;
+    margin-top: 50px;
+    padding: 15px;
+    background-color:#111b47;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-family:'Roboto';
+
 }
