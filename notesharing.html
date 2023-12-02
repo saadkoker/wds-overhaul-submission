@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>InkLink</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="assets/link.png" type="image/x-icon">
+  </head>
+  <body>
+    <div class="navbar">
+        <div class="pages">
+            <a href="#add-file" class="add-button">
+                <img src="assets/add-button.png" alt="Add File">
+                <img src="assets/three-dots.png" alt="Three Dots">
+            <a href="#home"><img src="assets/home-icon.png" alt="Home"></a>
+            </a>
+        </div>
+        <div class="general">
+            <a href="#record-text"><img src="assets/mic.png" alt="Record Text"></a>
+            <a href="#back"><img src="assets/back.png" alt="Back"></a>
+            <a href="#settings"><img src="assets/settings.png" alt="Settings"></a>
+        </div>
+      </div>
+      <div class="search-container">
+        <input type="text" class="search-bar" placeholder="Search for files...">
+        <button class="upload-btn">Upload</button>
+    </div>
+    <div class="notes_main">
+        <div class="sidebar">
+            <div class="top">
+                <span>Files</span>
+                <button class="add_file">+</button>
+            </div>
+            <div class="files">
+
+            </div>
+        </div>
+        <div class="notes">
+            <textarea name="writing" cols="30" rows="10" class="writing"></textarea>
+        </div>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>
