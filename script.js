@@ -59,7 +59,7 @@ function attachListeners() {
         addButton.addEventListener('click', addFile);
     }
 
-    const speechToTextButton = document.querySelector('.tts');
+    const speechToTextButton = document.querySelector('#tts');
     if (speechToTextButton) {
         speechToTextButton.addEventListener('click', startSpeechToText);
     }
