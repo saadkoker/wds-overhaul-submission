@@ -17,6 +17,14 @@ body {
     color: var(--link-color);
 }
 
+.navbar2 {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 5px;
+    background-color: #000;
+}
+
 .pages {
     display: flex;
     justify-content: flex-start;
@@ -26,12 +34,29 @@ body {
     font-family:'Roboto';
 }
 
+.pages2 {
+    display: flex;
+    justify-content: flex-start;
+    width: 60%;
+    align-items: center;
+    gap: 10px;
+    font-family:'Roboto';
+}
+
 .general {
     width: 40%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     gap: 36px;
+}
+
+.general2 {
+    width: 40%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
 }
 
 .head {
