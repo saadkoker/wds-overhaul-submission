@@ -14,6 +14,31 @@ let currentID = 0;
 document.addEventListener("DOMContentLoaded", attachListeners);
 document.addEventListener("DOMContentLoaded", checkPage);
 
+function startSpeechToText() {
+    const recognition = new webkitSpeechRecognition() || new SpeechRecognition();
+    
+    // Configure the recognition settings
+    recognition.lang = 'en-US';
+    recognition.interimResults = false;
+    
+    // Start listening
+    recognition.start();
+    
+    // Handle the recognition result
+    recognition.onresult = (event) => {
+        const transcript = event.results[0][0].transcript;
+        
+        // Insert the transcribed text into the current notes content
+        if (currentNote) {
+            currentNote.content = transcript;
+            updateTextareaContent();
+        }
+        
+        // Stop listening
+        recognition.stop();
+    };
+}
+
 function attachListeners() {
     document.querySelector('.login_form')?.addEventListener('submit', login);
     let logoutButton = document.querySelector('.logout');
@@ -24,6 +49,11 @@ function attachListeners() {
     let addButton = document.querySelector('.add_file');
     if (addButton) {
         addButton.addEventListener('click', addFile);
+    }
+
+    const speechToTextButton = document.querySelector('.tts');
+    if (speechToTextButton) {
+        speechToTextButton.addEventListener('click', startSpeechToText);
     }
 
     var textarea = document.querySelector('.writing');
@@ -68,6 +98,10 @@ function editTextArea(noteToReplace) {
     let writingTextarea = document.querySelector('.writing');
     writingTextarea.value = currentNote.content;
 }
+function updateTextareaContent() {
+    let writingTextarea = document.querySelector('.writing');
+    writingTextarea.value = currentNote.content;
+}
 
 function addFile() {
     let filebar = document.querySelector('.files');
@@ -92,6 +126,11 @@ function addFile() {
     let writingTextarea = document.querySelector('.writing');
     writingTextarea.value = '';  // Clear the textarea
     currentNote = newNote;
+}
+
+function startSpeechToTextForNewNote(newNote) {
+    currentNote = newNote;
+    startSpeechToText();
 }
 
 function checkPage() {
