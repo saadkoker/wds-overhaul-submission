@@ -39,4 +39,17 @@
     </div>
   </body>
   <script defer src="script.js"></script>
+
+    <!-- Add any additional script specific to note.html below -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Retrieve the stored content of the current note from localStorage
+            const currentNoteContent = localStorage.getItem('currentNoteContent');
+
+            // Populate the textarea with the content
+            const writingTextarea = document.querySelector('.writing');
+            writingTextarea.value = currentNoteContent || '';
+
+        });
+    </script>
 </html>
