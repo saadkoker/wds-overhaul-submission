@@ -9,12 +9,14 @@ class Image {
     constructor(name ,path) {
         this.name = name;
         this.path = path;
+        this.button; // Reference to the associated button
     }
 }
 class Video {
     constructor(name ,path) {
         this.name = name;
         this.path = path;
+        this.button; // Reference to the associated button
     }
 }
 class Folder {
@@ -106,6 +108,28 @@ function startSpeechToText() {
         // Stop listening
         recognition.stop();
     };
+}
+const uploadButton = document.querySelector('.upload-btn');
+uploadButton.addEventListener('click', openFileExplorer);
+
+      
+function openFileExplorer() {
+document.getElementById('file-input').click();
+}
+
+function handleFileSelection(files) {
+console.log(files);
+
+// For example, display the file names
+for (let i = 0; i < files.length; i++) {
+    const newImg = new Image(files[i].name, files[i].name);
+    newImg.button = document.createElement('button');
+    newImg.button.setAttribute("id", currentID.toString());
+    newImg.button.setAttribute("class", "note");
+    currentID = currentID + 1;
+    dir.files.push(newImg);
+}
+loadContentNamesToDiv()
 }
 
 function attachListeners() {
@@ -305,7 +329,7 @@ function loadContentNamesToDiv() {
         itemDiv.setAttribute("class", "listing");
         itemDiv.setAttribute("id", file.button.getAttribute("id"));
 
-        if (file.constructor.name === 'Note' || file.constructor.name === 'Image' || file.constructor.name === 'Video') {
+        if (file.constructor.name === 'Note' || file.constructor.name === 'Video') {
             let itemDiv = document.createElement('div');
             itemDiv.setAttribute("class", "listing");
             itemDiv.setAttribute("id", file.button.getAttribute("id"));
@@ -321,6 +345,29 @@ function loadContentNamesToDiv() {
             itemDiv.addEventListener('click', () => {
                 // Navigate to note.html and load the content of the clicked note
                 window.location.href = 'notes.html';
+                localStorage.setItem('currentNoteContent', file.content);
+            });
+
+            directoryDisplayDiv.appendChild(itemDiv);
+        }
+        else if (file.constructor.name === 'Image') {
+            let itemDiv = document.createElement('div');
+            itemDiv.setAttribute("class", "listing");
+            itemDiv.setAttribute("id", file.button.getAttribute("id"));
+            let img = document.createElement('img');
+            img.setAttribute("class", "file-img");
+            let filePath = 'assets/';
+            filePath.concat(file.path);
+            img.src = filePath + file.path;
+            let nameToList = document.createElement('span');
+            nameToList.textContent = file.name;
+            nameToList.setAttribute("class", "listing-span");
+            itemDiv.appendChild(img);
+            itemDiv.appendChild(nameToList);
+
+            itemDiv.addEventListener('click', () => {
+                // Navigate to note.html and load the content of the clicked note
+                window.location.href = 'imageViewer.html';
                 localStorage.setItem('currentNoteContent', file.content);
             });
 
@@ -377,5 +424,6 @@ function loadContentNamesToDiv() {
             textArea.addEventListener('contextmenu', handleContextMenu);
         });
     }
+        
 }
 
