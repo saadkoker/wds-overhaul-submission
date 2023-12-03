@@ -31,16 +31,11 @@ body {
     justify-content: space-between;
     align-items: center;
     background-color: black;
-    /* Dark background color */
     padding: 10px 20px;
-    /* Adjust padding as needed */
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    /* Optional: Box shadow for a subtle lift */
     position: relative;
     width: 100%;
-    /* Make sure the navbar spans the entire width */
     box-sizing: border-box;
-    /* Include padding and border in element's total width and height */
 }
 
 .pages {
@@ -60,15 +55,12 @@ body {
 
 .pages2 a {
     color: #ffffff;
-    /* White text color */
     text-decoration: none;
     font-size: 16px;
-    /* Adjust font size as needed */
 }
 
 .pages2 img {
     max-height: 24px;
-    /* Limit the height of images */
 }
 
 
@@ -91,15 +83,12 @@ body {
 
 .general2 a {
     color: #ffffff;
-    /* White text color */
     text-decoration: none;
     font-size: 16px;
-    /* Adjust font size as needed */
 }
 
 .general2 img {
     max-height: 24px;
-    /* Limit the height of images */
 }
 
 .head {
@@ -233,9 +222,7 @@ body {
     margin: auto;
     margin-top: 120px;
     width: 80%;
-    /* Adjust the width as needed */
     max-width: 400px;
-    /* Set your desired maximum width */
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -245,31 +232,30 @@ body {
 .register-form input {
     width: 100%;
     height: 40px;
-    /* Adjust the height as needed */
     text-align: center;
     font-size: 16px;
-    /* Adjust the font size as needed */
     border: 1px solid #ccc;
-    /* Set your desired border color */
     border-radius: 5px;
     outline: none;
 }
 
-.emptydir{
+.emptydir {
     font-family: 'Roboto', sans-serif;
     position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
-.span-container{
+
+.span-container {
 
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Adjust the height as needed */
+    height: 100vh;
 
 }
+
 ::placeholder {
     text-align: left;
     font: 1em sans-serif;
@@ -278,7 +264,6 @@ body {
 .register-form input[type="submit"] {
     cursor: pointer;
     background-color: #111b47;
-    /* Set your desired background color for the submit button */
     color: white;
     border: none;
     border-radius: 5px;
@@ -313,7 +298,6 @@ body {
 
 .top-section img {
     width: 30px;
-    /* Adjust the size of the file image */
     margin-right: 10px;
     align-items: center;
 }
@@ -376,7 +360,6 @@ body {
 .search-container {
     float: right;
     margin-right: 20px;
-    /* Adjust the margin as needed */
 }
 
 .search-bar {
@@ -385,14 +368,14 @@ body {
     border-radius: 5px;
     margin-right: 5px;
 }
-.search-bar input{
+
+.search-bar input {
     text-align: left;
 }
 
 .upload-btn {
     padding: 10px;
     background-color: #4CAF50;
-    /* Green background color */
     color: white;
     border: none;
     border-radius: 5px;
@@ -401,7 +384,6 @@ body {
 
 .upload-btn:hover {
     background-color: #45a049;
-    /* Darker green on hover */
 }
 
 .main {
@@ -417,15 +399,12 @@ body {
     display: flex;
     justify-content: center;
     margin-top: 60px;
-    background-color: #f2f2f2; /* Light grey background */
-    padding: 20px; /* Adjust as needed */
-    border-radius: 10px; /* Optional: Rounded corners */
     background-color: #f2f2f2;
-    /* Light grey background */
     padding: 20px;
-    /* Adjust as needed */
     border-radius: 10px;
-    /* Optional: Rounded corners */
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 10px;
     width: 70%;
     height: 50%;
 }
@@ -435,11 +414,8 @@ body {
     padding: 60px;
     background-color: white;
     margin: 0 10px;
-    /* Adjust spacing between boxes */
     border-radius: 8px;
-    /* Optional: Rounded corners */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    /* Optional: Box shadow for a subtle lift */
     line-height: 2;
 }
 
@@ -484,7 +460,6 @@ body {
     font-style: normal;
     font-weight: 400;
     margin-bottom: 12px;
-    /* Increase margin between list items */
     display: flex;
     align-items: center;
     font-family: 'Roboto', sans-serif;
@@ -499,13 +474,11 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-/* Style for hiding the radio buttons initially */
 .radio-group {
     margin-top: 1rem;
     display: none;
 }
 
-/* Style for the label to resemble a button */
 label {
     cursor: pointer;
     padding: 10px;
@@ -525,9 +498,10 @@ label {
     font-family: 'Roboto', sans-serif;
 
 }
+
 input[type="radio"] {
     display: none;
-  }
+}
 
 .highlight-box {
     background-color: #AEE2FF;
@@ -554,12 +528,9 @@ input[type="radio"] {
     display: flex;
     gap: 10px;
     align-content: center;
-    /* Adjust the gap between boxes */
     margin-top: 175px;
-    /* Adjust margin as needed */
 }
 
-/* Hide the actual file input */
 #file-input {
     display: none;
 }
@@ -567,7 +538,6 @@ input[type="radio"] {
 .upload-btn {
     display: flex;
     align-items: center;
-    /* Align items vertically */
     padding: 10px;
     border: none;
     cursor: pointer;
@@ -584,11 +554,8 @@ input[type="radio"] {
 
 .upload-btn img {
     margin-left: 10px;
-    /* Adjust margin as needed */
     width: 20px;
-    /* Adjust width as needed */
     height: auto;
-    /* Maintain aspect ratio */
 }
 
 
@@ -617,29 +584,21 @@ input[type="radio"] {
 .directory-display {
     display: flex;
     flex-wrap: wrap;
-    /* Allow items to wrap to the next line */
     gap: 10px;
-    /* Add some space between items */
 }
 
 .listing {
     display: flex;
     flex-direction: column;
-    /* Stack items vertically */
     align-items: center;
-    /* Center items horizontally */
     padding: 40px;
-    /* Add padding for better spacing */
     border-radius: 10px;
-    /* Add border-radius for rounded corners */
 }
 
 .file-img {
     width: 177px;
-    /* Adjust the size of the image */
     height: 198px;
     margin-bottom: 5px;
-    /* Add some space between the image and text */
 }
 
 .listing-span {
@@ -649,9 +608,7 @@ input[type="radio"] {
 
 footer {
     color: grey;
-    /* Set text color for the footer */
     padding: 10px;
-    /* Add padding to the footer */
     position: fixed;
     bottom: 12px;
     left: 12px;
@@ -661,18 +618,14 @@ footer {
 .footer-content {
     display: flex;
     align-items: center;
-    /* Align items vertically */
     color: grey;
 }
 
 .footer-content img {
     width: 150px;
-    /* Adjust the width of the image */
     margin-right: 1px;
-    /* Add space between the image and text */
 }
 
 .highlighted-text {
     background-color: yellow;
-    /* Add any additional styles you want for the highlighted text */
 }

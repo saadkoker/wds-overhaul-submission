@@ -1,64 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>InkLink</title>
-    <link rel="stylesheet" href="./style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="assets/link.png" type="image/x-icon">
-  </head>
-  <body>
-    <div class="navbar2">
-        <div class="pages2">
-            <a href="#add-file" class="add-button">
-              <img src="assets/add-button.png" alt="Add File" id="addButton">
-                <div class="radio-group" id="radioGroup">
-                  <label>
-                      <input type="radio" name="fileOrFolder" value="newFile"> New File
-                  </label>
-                  <label>
-                      <input type="radio" name="fileOrFolder" value="newFolder"> New Folder
-                  </label>
-              </div>
 
-            </a>
-            <a href="#three-dots">
-              <img src="assets/three-dots.png" alt="Three Dots">
-            </a>
-            <a href="index.html"><img src="assets/home-icon.png" alt="Home"></a>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>InkLink</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/link.png" type="image/x-icon">
+</head>
+
+<body>
+  <div class="navbar2">
+    <div class="pages2">
+      <a href="#add-file" class="add-button">
+        <img src="assets/add-button.png" alt="Add File" id="addButton">
+        <div class="radio-group" id="radioGroup">
+          <label>
+            <input type="radio" name="fileOrFolder" value="newFile"> New File
+          </label>
+          <label>
+            <input type="radio" name="fileOrFolder" value="newFolder"> New Folder
+          </label>
         </div>
-        <div class="general2">
-            <a href="#back"><img src="assets/zoom.png" alt="Zoom"></a>
-            <a href="#record-text"><img src="assets/copy.png" alt="Copy Text"></a>
-            <a href="#back"><img src="assets/back.png" alt="Back"></a>
-            <a href="#settings"><img src="assets/settings.png" alt="Settings"></a>
-        </div>
+
+      </a>
+      <a href="#three-dots">
+        <img src="assets/three-dots.png" alt="Three Dots">
+      </a>
+      <a href="index.html"><img src="assets/home-icon.png" alt="Home"></a>
     </div>
+    <div class="general2">
+      <a href="#back"><img src="assets/zoom.png" alt="Zoom"></a>
+      <a href="#record-text"><img src="assets/copy.png" alt="Copy Text"></a>
+      <a href="#back"><img src="assets/back.png" alt="Back"></a>
+      <a href="#settings"><img src="assets/settings.png" alt="Settings"></a>
+    </div>
+  </div>
+  <div class="highlight-box">
+    <span>My Files</span>
+  </div>
 
-    <!-- Blue Box with "Files" -->
-    <div class="highlight-box">
-        <span>My Files</span>
-    </div>    
-    
-    <div class="action-boxes">
-      
-      <div class="search-container">
-          <input type="text" class="search-bar" placeholder="Search or Enter File Name">
-      </div>
-      <button class="upload-btn">
-        <img src="assets/upload.png" alt="Upload Icon">
-        DOCUMENT UPLOAD
-      </button>
-      <input type="file" id="file-input" accept=".png, .jpg, .jpeg, .mp4" onchange="handleFileSelection(this.files)" />
+  <div class="action-boxes">
+
+    <div class="search-container">
+      <input type="text" class="search-bar" placeholder="Search or Enter File Name">
+    </div>
+    <button class="upload-btn">
+      <img src="assets/upload.png" alt="Upload Icon">
+      DOCUMENT UPLOAD
+    </button>
+    <input type="file" id="file-input" accept=".png, .jpg, .jpeg, .mp4" onchange="handleFileSelection(this.files)" />
   </div>
   <div class="directory-display">
     <div class="span-container">
-    <span class="emptydir">Directory is Empty</span>
-  </div>
+      <span class="emptydir">Directory is Empty</span>
+    </div>
   </div>
 
   <footer>
@@ -69,4 +69,5 @@
   </footer>
 </body>
 <script src="script.js"></script>
+
 </html>

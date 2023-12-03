@@ -1,69 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>InkLink</title>
-    <link rel="stylesheet" href="./style.css">
-    <link rel="icon" href="assets/link.png" type="image/x-icon">
-  </head>
-  <body>
-    <div class="navbar2">
-      <div class="pages2">
-        <a href="#add-file" class="add-button">
-          <img src="assets/add-button.png" alt="Add File" id="addButton">
-            <div class="radio-group" id="radioGroup">
-              <label>
-                  <input type="radio" name="fileOrFolder" value="newFile"> New File
-              </label>
-              <label>
-                  <input type="radio" name="fileOrFolder" value="newFolder"> New Folder
-              </label>
-          </div>
 
-        </a>
-        <a href="#three-dots">
-          <img src="assets/three-dots.png" alt="Three Dots">
-        </a>
-          <a href="filestoring.html"><img src="assets/home-icon.png" alt="Home"></a>
-      </div>
-      <div class="general2">
-          
-          <a href="#record-text"><img src="assets/zoom.png" alt="Zoom"></a>
-          <a href="#speak-text"><img class="speakText" src="assets/headphones.png" alt="Text to Speech"></a>
-          <a href="#record-text"><img src="assets/copy.png" alt="Copy Text"></a>
-          <a id= "tts" href="#record-text"><img src="assets/mic.png" alt="Record Text"></a>
-          <a href="#back"><img src="assets/back.png" alt="Back"></a>
-          <a href="#settings"><img src="assets/settings.png" alt="Settings"></a>
-      </div>
-    </div>
-    <div class="notes_main">
-        <div class="notes">
-            <textarea name="writing" cols="30" rows="10" class="writing"></textarea>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>InkLink</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="icon" href="assets/link.png" type="image/x-icon">
+</head>
+
+<body>
+  <div class="navbar2">
+    <div class="pages2">
+      <a href="#add-file" class="add-button">
+        <img src="assets/add-button.png" alt="Add File" id="addButton">
+        <div class="radio-group" id="radioGroup">
+          <label>
+            <input type="radio" name="fileOrFolder" value="newFile"> New File
+          </label>
+          <label>
+            <input type="radio" name="fileOrFolder" value="newFolder"> New Folder
+          </label>
         </div>
+
+      </a>
+      <a href="#three-dots">
+        <img src="assets/three-dots.png" alt="Three Dots">
+      </a>
+      <a href="filestoring.html"><img src="assets/home-icon.png" alt="Home"></a>
     </div>
-  
-    <footer>
-      <div class="footer-content">
-        <img src="assets/logo.png" alt="Image Description">
-        <p>Copyright © 2023, Western Developers Society</p>
-      </div>
-    </footer>
-  </body>
-  <script defer src="script.js"></script>
+    <div class="general2">
 
-    <!-- Add any additional script specific to note.html below -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Retrieve the stored content of the current note from localStorage
-            const currentNoteContent = localStorage.getItem('currentNoteContent');
+      <a href="#record-text"><img src="assets/zoom.png" alt="Zoom"></a>
+      <a href="#speak-text"><img class="speakText" src="assets/headphones.png" alt="Text to Speech"></a>
+      <a href="#record-text"><img src="assets/copy.png" alt="Copy Text"></a>
+      <a id="tts" href="#record-text"><img src="assets/mic.png" alt="Record Text"></a>
+      <a href="#back"><img src="assets/back.png" alt="Back"></a>
+      <a href="#settings"><img src="assets/settings.png" alt="Settings"></a>
+    </div>
+  </div>
+  <div class="notes_main">
+    <div class="notes">
+      <textarea name="writing" cols="30" rows="10" class="writing"></textarea>
+    </div>
+  </div>
 
-            // Populate the textarea with the content
-            const writingTextarea = document.querySelector('.writing');
-            writingTextarea.value = currentNoteContent || '';
+  <footer>
+    <div class="footer-content">
+      <img src="assets/logo.png" alt="Image Description">
+      <p>Copyright © 2023, Western Developers Society</p>
+    </div>
+  </footer>
+</body>
+<script defer src="script.js"></script>
 
-        });
-        
-    </script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+
+    const currentNoteContent = localStorage.getItem('currentNoteContent');
+
+
+    const writingTextarea = document.querySelector('.writing');
+    writingTextarea.value = currentNoteContent || '';
+
+  });
+
+</script>
+
 </html>

@@ -2,33 +2,33 @@ class Note {
     constructor(name) {
         this.name = name;
         this.content = '';
-        this.button; // Reference to the associated button
+        this.button;
     }
 }
 class Image {
-    constructor(name ,path) {
+    constructor(name, path) {
         this.name = name;
         this.path = path;
-        this.button; // Reference to the associated button
+        this.button;
     }
 }
 class Video {
-    constructor(name ,path) {
+    constructor(name, path) {
         this.name = name;
         this.path = path;
-        this.button; // Reference to the associated button
+        this.button;
     }
 }
 class Folder {
 
-    constructor(name){
+    constructor(name) {
         this.name = name;
         this.files = [];
         this.button;
     }
 }
 class Directory {
-    constructor(){
+    constructor() {
         this.files = [];
     }
 }
@@ -44,17 +44,17 @@ let currentID = 0;
 document.addEventListener("DOMContentLoaded", attachListeners);
 document.addEventListener("DOMContentLoaded", checkPage);
 document.addEventListener('DOMContentLoaded', function () {
-    
+
     var path = window.location.pathname;
     var page = path.split("/").pop();
 
     var links = document.querySelectorAll('.navBar a');
-    links.forEach(function(link) {
-      if (link.getAttribute('href') === page) {
-        link.classList.add('current');
-      }
+    links.forEach(function (link) {
+        if (link.getAttribute('href') === page) {
+            link.classList.add('current');
+        }
     });
-  });
+});
 
 document.addEventListener('keydown', (e) => {
 
@@ -64,32 +64,26 @@ document.addEventListener('keydown', (e) => {
         let selectedText = window.getSelection().toString();
         let range = window.getSelection().getRangeAt(0);
 
-        // Create a unique identifier for the mark element
         let uniqueId = 'highlight_' + Date.now();
 
-        // Add the unique ID to the list
         uniqueIds.push(uniqueId);
 
-        // Create a mark element with a unique class
         let mark = document.createElement('mark');
         mark.className = 'custom-highlight';
         mark.id = uniqueId;
 
-        // Wrap the extracted contents with a span
         let wrapper = document.createElement('span');
         wrapper.appendChild(range.extractContents());
         mark.appendChild(wrapper);
 
         range.insertNode(mark);
 
-        // Speak the selected text
         msg.text = selectedText;
         speechSynthesis.speak(msg);
 
         isTextSpoken = true;
 
         msg.addEventListener('end', () => {
-            // Remove the mark elements after speech using unique IDs
             uniqueIds.forEach(id => {
                 let highlightedElement = document.getElementById(id);
                 if (highlightedElement) {
@@ -97,7 +91,6 @@ document.addEventListener('keydown', (e) => {
                 }
             });
 
-            // Clear the unique IDs list
             uniqueIds.length = 0;
 
             isTextSpoken = false;
@@ -105,105 +98,92 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-if(window.location.href.includes('filestoring.html')) {
+if (window.location.href.includes('filestoring.html')) {
     const addButton = document.getElementById('addButton');
     const radioGroup = document.getElementById('radioGroup');
 
-        // Add event listener for changes in the radio button selection
-        radioGroup.addEventListener('change', function (event) {
-            // Hide the radio button group when an option is selected
-            radioGroup.style.display = 'none';
-            const selectedOption = event.target.value;
+    radioGroup.addEventListener('change', function (event) {
+        radioGroup.style.display = 'none';
+        const selectedOption = event.target.value;
 
-            if (selectedOption === 'newFile') {
-                addFile();
-                var elements = document.getElementsByTagName("input");
+        if (selectedOption === 'newFile') {
+            addFile();
+            var elements = document.getElementsByTagName("input");
 
-                for (var i = 0; i < elements.length; i++) {
-                        if (elements[i].type == "radio") {
-                            elements[i].checked = false;
-                        }
-                    }
-                
-                // Add your file-specific logic here
-            } else if (selectedOption === 'newFolder') {
-                addFolder();
-                var elements = document.getElementsByTagName("input");
-
-                for (var i = 0; i < elements.length; i++) {
-                        if (elements[i].type == "radio") {
-                            elements[i].checked = false;
-                        }
-                    }
-                // Add your folder-specific logic here
+            for (var i = 0; i < elements.length; i++) {
+                if (elements[i].type == "radio") {
+                    elements[i].checked = false;
+                }
             }
-        });
 
-        addButton.addEventListener('click', function () {
-            // Toggle the display of the radio button group
-            radioGroup.style.display = (radioGroup.style.display === 'none' || radioGroup.style.display === '') ? 'block' : 'none';
-        });
+        } else if (selectedOption === 'newFolder') {
+            addFolder();
+            var elements = document.getElementsByTagName("input");
+
+            for (var i = 0; i < elements.length; i++) {
+                if (elements[i].type == "radio") {
+                    elements[i].checked = false;
+                }
+            }
+        }
+    });
+
+    addButton.addEventListener('click', function () {
+        radioGroup.style.display = (radioGroup.style.display === 'none' || radioGroup.style.display === '') ? 'block' : 'none';
+    });
 }
 
-if(window.location.href === 'filestoring.html') {
-    // Add event listener for beforeunload
+if (window.location.href === 'filestoring.html') {
     window.addEventListener('beforeunload', saveNotes);
 }
 let foldersSelect = document.getElementById('folders');
 
 function saveNotes() {
-    // Save notes to localStorage before leaving the page
     localStorage.setItem('notes', JSON.stringify(notes));
 }
 
 function startSpeechToText() {
     const recognition = new webkitSpeechRecognition() || new SpeechRecognition();
-    
-    // Configure the recognition settings
+
     recognition.lang = 'en-US';
     recognition.interimResults = false;
-    
-    // Start listening
+
     recognition.start();
-    
-    // Handle the recognition result
+
     recognition.onresult = (event) => {
         const transcript = event.results[0][0].transcript;
-        
-        // Append the transcribed text to the current notes content
+
         if (currentNote) {
-            currentNote.content += transcript;  // Use += to append
+            currentNote.content += transcript;
             updateTextareaContent();
         }
-        
-        // Stop listening
+
         recognition.stop();
     };
 }
 
-if(window.location.href.includes('filestoring.html')){
+if (window.location.href.includes('filestoring.html')) {
 
     const uploadButton = document.querySelector('.upload-btn');
     uploadButton.addEventListener('click', openFileExplorer);
 
-        
+
     function openFileExplorer() {
-    document.getElementById('file-input').click();
+        document.getElementById('file-input').click();
     }
 
     function handleFileSelection(files) {
-    console.log(files);
+        console.log(files);
 
-    // For example, display the file names
-    for (let i = 0; i < files.length; i++) {
-        const newImg = new Image(files[i].name, files[i].name);
-        newImg.button = document.createElement('button');
-        newImg.button.setAttribute("id", currentID.toString());
-        newImg.button.setAttribute("class", "note");
-        currentID = currentID + 1;
-        dir.files.push(newImg);
-    }
-    loadContentNamesToDiv()
+        for (let i = 0; i < files.length; i++) {
+            const newImg = new Image(files[i].name, files[i].name);
+            newImg.button = document.createElement('button');
+            newImg.button.setAttribute("id", currentID.toString());
+            newImg.button.setAttribute("class", "note");
+            currentID = currentID + 1;
+            dir.files.push(newImg);
+        }
+        loadContentNamesToDiv()
     }
 }
 
@@ -218,7 +198,7 @@ function attachListeners() {
     if (addButton) {
         addButton.addEventListener('click', addFile);
     }
-    
+
     const speechToTextButton = document.querySelector('#tts');
     if (speechToTextButton) {
         speechToTextButton.addEventListener('click', startSpeechToText);
@@ -226,38 +206,34 @@ function attachListeners() {
 
     var textarea = document.querySelector('.writing');
 
-    // Check if the textarea element exists
     if (textarea) {
-        // Add an 'input' event listener to the textarea
-        textarea.addEventListener('input', function() {
-            // Get the content of the textarea when it's updated
+        textarea.addEventListener('input', function () {
             if (currentNote) {
                 currentNote.content = textarea.value;
             }
         });
     }
     const ttsButton = document.querySelector('.speakText');
-    document.addEventListener('click', function(event) {
+    document.addEventListener('click', function (event) {
         const closestAnchor = event.target.closest('a');
-    
+
         if (closestAnchor && closestAnchor.querySelector('img.speakText')) {
-            // Check if the clicked element or its ancestor is an <a> element with an <img> with class "speakText"
-            
+
             console.log('Content of the clicked note:', currentNote.content);
-    
+
             let selectedText = window.getSelection().toString().trim();
-    
+
             if (selectedText === '') {
                 selectedText = currentNote.content;
             }
-    
+
             function speakText(text) {
                 const speech = new SpeechSynthesisUtterance();
                 speech.text = text;
-            
+
                 speechSynthesis.speak(speech);
             }
-    
+
             speakText(selectedText);
         }
     });
@@ -276,7 +252,6 @@ function addFile() {
 
     let fileName = prompt('Enter a unique name for your new file:');
     if (!fileName) {
-        // If the user cancels the prompt, return early
         return;
     }
     let newNote = new Note(fileName);
@@ -288,25 +263,18 @@ function addFile() {
     newNote.button.textContent = fileName;
     newNote.button.addEventListener('click', () => editTextArea(newNote));
 
-    if(window.location.href.includes('filestoring.html')){
+    if (window.location.href.includes('filestoring.html')) {
         loadContentNamesToDiv();
     }
-    
+
     currentID = currentID + 1;
 
-    /*
-    // Clear the content of the textarea and set the current note to the new note
-    let writingTextarea = document.querySelector('.writing');
-    writingTextarea.value = '';  // Clear the textarea
-    currentNote = newNote;
-    */
 }
 function addFolder() {
     let filebar = document.querySelector('.files');
     let folderName = prompt('Enter a unique name for your new folder:');
     let id = currentID.toString();
     if (!folderName) {
-        // If the user cancels the prompt, return early
         return;
     }
     let newFolder = new Folder(folderName);
@@ -318,10 +286,9 @@ function addFolder() {
     newFolder.button.textContent = folderName;
     currentID = currentID + 1;
 
-    if(window.location.href.includes('filestoring.html')){
+    if (window.location.href.includes('filestoring.html')) {
         loadContentNamesToDiv();
     }
-    // Clear the content of the textarea and set the current note to the new note
 }
 
 function startSpeechToTextForNewNote(newNote) {
@@ -336,19 +303,16 @@ function checkPage() {
     if (window.location.href.includes('notes.html') && !username)
         window.location = 'login.html';
 
-    // Load notes from localStorage on page load
     if (window.location.href.includes('notes.html')) {
         const savedNotes = localStorage.getItem('notes');
         if (savedNotes) {
             notes = JSON.parse(savedNotes);
 
-            // Rebuild the note buttons in the UI
             rebuildNoteButtons();
         }
     }
 }
 
-// Add a function to rebuild note buttons in the UI
 function rebuildNoteButtons() {
 
 }
@@ -386,18 +350,16 @@ function logout(event) {
 function zoomText() {
     var filesText = document.getElementById('filesText');
     var currentSize = window.getComputedStyle(filesText).fontSize;
-    var newSize = parseFloat(currentSize) * 1.2; // Increase font size by 20%
+    var newSize = parseFloat(currentSize) * 1.2;
     filesText.style.fontSize = newSize + 'px';
 }
 function loadContentNamesToDiv() {
     const directoryDisplayDiv = document.querySelector('.directory-display');
 
-    // Clear the existing content in the div
     directoryDisplayDiv.innerHTML = '';
 
-    // Iterate through the files in dir
     dir.files.forEach(file => {
-        
+
         let itemDiv = document.createElement('div');
         itemDiv.setAttribute("class", "listing");
         itemDiv.setAttribute("id", file.button.getAttribute("id"));
@@ -408,7 +370,7 @@ function loadContentNamesToDiv() {
             itemDiv.setAttribute("id", file.button.getAttribute("id"));
             let img = document.createElement('img');
             img.setAttribute("class", "file-img");
-            img.src ='assets/file-icon.png';
+            img.src = 'assets/file-icon.png';
             let nameToList = document.createElement('span');
             nameToList.textContent = file.name;
             nameToList.setAttribute("class", "listing-span");
@@ -416,7 +378,6 @@ function loadContentNamesToDiv() {
             itemDiv.appendChild(nameToList);
 
             itemDiv.addEventListener('click', () => {
-                // Navigate to note.html and load the content of the clicked note
                 window.location.href = 'notes.html';
                 localStorage.setItem('currentNoteContent', file.content);
             });
@@ -439,14 +400,13 @@ function loadContentNamesToDiv() {
             itemDiv.appendChild(nameToList);
 
             itemDiv.addEventListener('click', () => {
-                // Navigate to note.html and load the content of the clicked note
                 window.location.href = 'imageViewer.html';
                 localStorage.setItem('currentNoteContent', file.content);
             });
 
             directoryDisplayDiv.appendChild(itemDiv);
         }
-        else{
+        else {
             let itemDiv = document.createElement('div');
             itemDiv.setAttribute("class", "listing");
             itemDiv.setAttribute("id", file.button.getAttribute("id"));
@@ -460,11 +420,10 @@ function loadContentNamesToDiv() {
             itemDiv.appendChild(nameToList);
 
             directoryDisplayDiv.appendChild(itemDiv);
-            
+
         }
         if (file.constructor.name === 'Note') {
             itemDiv.addEventListener('click', () => {
-                // Navigate to note.html and load the content of the clicked note
                 window.location.href = 'notes.html';
                 localStorage.setItem('currentNoteContent', file.content);
             });
