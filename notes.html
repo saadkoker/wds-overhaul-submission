@@ -14,7 +14,7 @@
           <a href="#add-file" class="add-button">
               <img src="assets/add-button.png" alt="Add File">
               <img src="assets/three-dots.png" alt="Three Dots">
-          <a href="#home"><img src="assets/home-icon.png" alt="Home"></a>
+          <a href="filestoring.html"><img src="assets/home-icon.png" alt="Home"></a>
           </a>
       </div>
       <div class="general2">
@@ -27,33 +27,6 @@
       </div>
     </div>
     <div class="notes_main">
-      <div class="sidebar">
-        <!-- Top Section -->
-        <div class="top-section">
-            <img src="assets/file-icon.png" alt="File Icon">
-            <span>Files</span>
-        </div>
-
-        <!-- Files Section -->
-        <div class="files-section">
-            <!-- List of Files Goes Here -->
-            <ul>
-                <li>File 1</li>
-                <li>File 2</li>
-                <!-- Add more files as needed -->
-            </ul>
-        </div>
-
-        <!-- Folders Section -->
-        <div class="folders-section">
-            <!-- List of Folders Goes Here -->
-            <ul>
-                <li>Folder 1</li>
-                <li>Folder 2</li>
-                <!-- Add more folders as needed -->
-            </ul>
-        </div>
-    </div>
         <div class="notes">
             <textarea name="writing" cols="30" rows="10" class="writing"></textarea>
         </div>
@@ -81,43 +54,4 @@
         });
         
     </script>
-
-  <script>
-  let msg = new SpeechSynthesisUtterance();
-  let voices = speechSynthesis.getVoices();
-  msg.voice = voices[0];
-  let isTextSpoken = false;
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' && window.getSelection().toString() !== '' && !isTextSpoken) {
-        let selectedText = window.getSelection().toString();
-        let range = window.getSelection().getRangeAt(0);
-
-        // Create a unique identifier for the mark element
-        let uniqueId = 'highlight_' + Date.now();
-
-        // Create a mark element with a unique class
-        let mark = document.createElement('mark');
-        mark.className = 'custom-highlight';
-        mark.id = uniqueId;
-        mark.appendChild(range.extractContents());
-        range.insertNode(mark);
-
-        // Speak the selected text
-        msg.text = selectedText;
-        speechSynthesis.speak(msg);
-
-        isTextSpoken = true;
-
-        msg.addEventListener('end', () => {
-            // Remove the mark element after speech
-            let highlightedElement = document.getElementById(uniqueId);
-            if (highlightedElement) {
-                highlightedElement.replaceWith(...highlightedElement.childNodes);
-            }
-            isTextSpoken = false;
-        });
-    }
-});
-  </script>
 </html>
