@@ -109,27 +109,31 @@ function startSpeechToText() {
         recognition.stop();
     };
 }
-const uploadButton = document.querySelector('.upload-btn');
-uploadButton.addEventListener('click', openFileExplorer);
 
-      
-function openFileExplorer() {
-document.getElementById('file-input').click();
-}
+if(window.location.href.includes('filestoring.html')){
 
-function handleFileSelection(files) {
-console.log(files);
+    const uploadButton = document.querySelector('.upload-btn');
+    uploadButton.addEventListener('click', openFileExplorer);
 
-// For example, display the file names
-for (let i = 0; i < files.length; i++) {
-    const newImg = new Image(files[i].name, files[i].name);
-    newImg.button = document.createElement('button');
-    newImg.button.setAttribute("id", currentID.toString());
-    newImg.button.setAttribute("class", "note");
-    currentID = currentID + 1;
-    dir.files.push(newImg);
-}
-loadContentNamesToDiv()
+        
+    function openFileExplorer() {
+    document.getElementById('file-input').click();
+    }
+
+    function handleFileSelection(files) {
+    console.log(files);
+
+    // For example, display the file names
+    for (let i = 0; i < files.length; i++) {
+        const newImg = new Image(files[i].name, files[i].name);
+        newImg.button = document.createElement('button');
+        newImg.button.setAttribute("id", currentID.toString());
+        newImg.button.setAttribute("class", "note");
+        currentID = currentID + 1;
+        dir.files.push(newImg);
+    }
+    loadContentNamesToDiv()
+    }
 }
 
 function attachListeners() {
@@ -161,29 +165,29 @@ function attachListeners() {
             }
         });
     }
+    const ttsButton = document.querySelector('.speakText');
     document.addEventListener('click', function(event) {
-        // Check if the clicked element has the class "note"
-        if (event.target.classList.contains('note')) {
-            // Update the 'buttonCurrentlySelected' variable
-            buttonCurrentlySelected = event.target;
-
-            // Retrieve the note associated with the clicked button
-
+        const closestAnchor = event.target.closest('a');
+    
+        if (closestAnchor && closestAnchor.querySelector('img.speakText')) {
+            // Check if the clicked element or its ancestor is an <a> element with an <img> with class "speakText"
+            
             console.log('Content of the clicked note:', currentNote.content);
-
+    
             let selectedText = window.getSelection().toString().trim();
-
+    
             if (selectedText === '') {
-                selectedText = currentNote.content
+                selectedText = currentNote.content;
             }
-
+    
             function speakText(text) {
                 const speech = new SpeechSynthesisUtterance();
                 speech.text = text;
             
                 speechSynthesis.speak(speech);
-              }
-            speakText(selectedText)
+            }
+    
+            speakText(selectedText);
         }
     });
 }
@@ -275,20 +279,7 @@ function checkPage() {
 
 // Add a function to rebuild note buttons in the UI
 function rebuildNoteButtons() {
-    const filebar = document.querySelector('.files');
-    filebar.innerHTML = ''; // Clear existing buttons
 
-    for (let i = 0; i < notes.length; i++) {
-        const note = notes[i];
-        const id = i.toString();
-
-        note.button = document.createElement('button');
-        note.button.setAttribute("id", id);
-        note.button.setAttribute("class", "note");
-        note.button.textContent = note.name;
-        note.button.addEventListener('click', () => editTextArea(note));
-        filebar.appendChild(note.button);
-    }
 }
 
 function login(event) {
@@ -398,32 +389,5 @@ function loadContentNamesToDiv() {
         }
         directoryDisplayDiv.appendChild(itemDiv);
     });
-    if(window.location.href === 'notes.html') {
-        document.addEventListener('DOMContentLoaded', function () {
-            const textArea = document.getElementById('textArea');
-        
-            // Function to handle right-click context menu
-            function handleContextMenu(event) {
-            event.preventDefault();
-        
-            const selectedText = window.getSelection().toString().trim();
-            if (selectedText) {
-                speakText(selectedText);
-            }
-            }
-        
-            // Function to speak the selected text using Web Speech API
-            function speakText(text) {
-            const speech = new SpeechSynthesisUtterance();
-            speech.text = text;
-        
-            speechSynthesis.speak(speech);
-            }
-        
-            // Attach context menu event listener to the text area
-            textArea.addEventListener('contextmenu', handleContextMenu);
-        });
-    }
-        
 }
 
