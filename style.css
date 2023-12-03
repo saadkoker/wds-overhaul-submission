@@ -411,3 +411,33 @@ body {
     font-weight: 700;
     line-height: normal;
 }
+
+.action-boxes {
+    display: flex;
+    gap: 10px; /* Adjust the gap between boxes */
+    margin-top: 10px; /* Adjust margin as needed */
+}
+
+.upload-btn {
+    padding: 10px;
+    background-color: #4CAF50; /* Green background color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.upload-btn:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+.search-container {
+    display: flex;
+}
+
+.search-bar {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 5px;
+}
