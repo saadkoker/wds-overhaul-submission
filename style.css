@@ -8,6 +8,7 @@ body {
     padding: 0;
 }
 
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -242,6 +243,11 @@ body {
     position: relative;
 }
 
+.add-button {
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+}
 
 .tts {
     position: absolute;
@@ -379,7 +385,19 @@ body {
     color: #333; 
     font-family:'Roboto';
 }
+/* Style for hiding the radio buttons initially */
+.radio-group {
+    display: none;
+}
 
+/* Style for the label to resemble a button */
+label {
+    cursor: pointer;
+    padding: 10px;
+    background-color: #3498db;
+    color: #fff;
+    border-radius: 5px;
+}
 .pricing-plan a {
     display: block;
     margin-top: 50px;
