@@ -354,7 +354,7 @@ function login(event) {
     localStorage.setItem('username', username);
     localStorage.setItem('password', password);
 
-    window.location = 'notes.html';
+    window.location = 'filestoring.html';
 }
 function signup(event) {
     event.preventDefault();
@@ -365,7 +365,7 @@ function signup(event) {
     localStorage.setItem('username', username);
     localStorage.setItem('password', password);
 
-    window.location = 'notes.html';
+    window.location = 'filestoring.html';
 }
 
 function logout(event) {
