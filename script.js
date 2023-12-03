@@ -76,54 +76,6 @@ const radioGroup = document.getElementById('radioGroup');
 window.addEventListener('beforeunload', saveNotes);
 let foldersSelect = document.getElementById('folders');
 
-function updateSelector() {
-    
-        foldersSelect = document.getElementById('folders');
-        foldersSelect.value = null
-        // Sample data for folders
-        let folderOptions = [];
-
-
-        folderOptions.push(dir.files[dir.files.length-1].name); // Append the option to the select element
-     
-
-        // Loop through the folder options and add them to the select element
-        folderOptions.forEach(folder => {
-            const option = document.createElement('option');
-            option.value = folder; // Set the value attribute
-            option.text = folder;  // Set the text content
-            foldersSelect.add(option); // Append the option to the select element
-        });
-}
-foldersSelect.addEventListener('change', function () {
-    // Get the selected folder name
-    const selectedFolder = foldersSelect.value;
-    let folderInDir;
-
-    // Print the selected folder name to the console
-    dir.files.forEach(file => {
-        if (file.name === selectedFolder) {
-            folderInDir = file;
-        }
-    });
-    const folderPrint = document.querySelector('.print-folder-obj');
-    if (folderInDir.constructor.name === 'Note' || folderInDir.constructor.name === 'Image' || folderInDir.constructor.name === 'Video') {
-        const nameToList = document.createElement('li');
-        nameToList.value = folderInDir.name; // Set the value attribute
-        nameToList.appendChild(document.createTextNode(folderInDir.name)); // Set the text content
-        folderPrint.appendChild(nameToList); 
-        console.log(nameToList.name);// Append the option to the select element
-    }
-    else{
-        for (var i = 0; i < folderInDir.length; i++){
-            const nameToList = document.createElement('li');
-            nameToList.value = folderInDir[i].name; // Set the value attribute
-            nameToList.appendChild(document.createTextNode(folderInDir[i].name)); // Set the text content // Set the text content
-            folderPrint.appendChild(nameToList); // Append the option to the select element
-        }
-        // Add your logic here based on the selected folder
-    }
-});
 function saveNotes() {
     // Save notes to localStorage before leaving the page
     localStorage.setItem('notes', JSON.stringify(notes));
@@ -234,7 +186,6 @@ function addFile() {
     newNote.button.setAttribute("class", "note");
     newNote.button.textContent = fileName;
     newNote.button.addEventListener('click', () => editTextArea(newNote));
-    updateSelector();
     loadContentNamesToDiv();
     currentID = currentID + 1;
 
@@ -261,7 +212,6 @@ function addFolder() {
     newFolder.button.setAttribute("class", "folder");
     newFolder.button.textContent = folderName;
     currentID = currentID + 1;
-    updateSelector();
     loadContentNamesToDiv();
     currentID = currentID + 1;
     // Clear the content of the textarea and set the current note to the new note
