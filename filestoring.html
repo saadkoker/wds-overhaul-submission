@@ -13,6 +13,14 @@
         <div class="pages2">
             <a href="#add-file" class="add-button">
               <img src="assets/add-button.png" alt="Add File" id="addButton">
+                <div class="radio-group" id="radioGroup">
+                  <label>
+                      <input type="radio" name="fileOrFolder" value="newFile"> New File
+                  </label>
+                  <label>
+                      <input type="radio" name="fileOrFolder" value="newFolder"> New Folder
+                  </label>
+              </div>
               <img src="assets/three-dots.png" alt="Three Dots">
             </a>
             <a href="#home"><img src="assets/home-icon.png" alt="Home"></a>
@@ -41,10 +49,17 @@
       </div>
       
   </div>
+  <div class="directory-display">
+    <span>Directory is empty</span>
+  </div>
   <div class="folder-selector">
-    <label for="Folders">Choose a Folder:</label>
+    <label>Choose a Folder:</label>
   <select name="folders" id="folders">
   </select>
+  </div>
+  <div class="print-folder-obj">
+    <ul class="objs-in-folder">
+    </ul>
   </div>
   
 </body>

@@ -1,6 +1,6 @@
 class Note {
-    constructor(title) {
-        this.title = title;
+    constructor(name) {
+        this.name = name;
         this.content = '';
         this.button; // Reference to the associated button
     }
@@ -54,6 +54,13 @@ const radioGroup = document.getElementById('radioGroup');
             // Add your file-specific logic here
         } else if (selectedOption === 'newFolder') {
             addFolder();
+            var elements = document.getElementsByTagName("input");
+
+            for (var i = 0; i < elements.length; i++) {
+                    if (elements[i].type == "radio") {
+                        elements[i].checked = false;
+                    }
+                }
             // Add your folder-specific logic here
         }
     });
@@ -67,29 +74,60 @@ const radioGroup = document.getElementById('radioGroup');
 
 // Add event listener for beforeunload
 window.addEventListener('beforeunload', saveNotes);
+let foldersSelect = document.getElementById('folders');
 
-const foldersSelect = document.getElementById('folders');
+function updateSelector() {
+    
+        foldersSelect = document.getElementById('folders');
+        foldersSelect.value = null
+        // Sample data for folders
+        let folderOptions = [];
 
-    // Sample data for folders
-    const folderOptions = [];
 
+        folderOptions.push(dir.files[dir.files.length-1].name); // Append the option to the select element
+     
+
+        // Loop through the folder options and add them to the select element
+        folderOptions.forEach(folder => {
+            const option = document.createElement('option');
+            option.value = folder; // Set the value attribute
+            option.text = folder;  // Set the text content
+            foldersSelect.add(option); // Append the option to the select element
+        });
+}
+foldersSelect.addEventListener('change', function () {
+    // Get the selected folder name
+    const selectedFolder = foldersSelect.value;
+    let folderInDir;
+
+    // Print the selected folder name to the console
     dir.files.forEach(file => {
-        folderOptions.add(file.name); // Append the option to the select element
+        if (file.name === selectedFolder) {
+            folderInDir = file;
+        }
     });
-
-    // Loop through the folder options and add them to the select element
-    folderOptions.forEach(folder => {
-        const option = document.createElement('option');
-        option.value = folder; // Set the value attribute
-        option.text = folder;  // Set the text content
-        foldersSelect.add(option); // Append the option to the select element
-    });
-
+    const folderPrint = document.querySelector('.print-folder-obj');
+    if (folderInDir.constructor.name === 'Note' || folderInDir.constructor.name === 'Image' || folderInDir.constructor.name === 'Video') {
+        const nameToList = document.createElement('li');
+        nameToList.value = folderInDir.name; // Set the value attribute
+        nameToList.appendChild(document.createTextNode(folderInDir.name)); // Set the text content
+        folderPrint.appendChild(nameToList); 
+        console.log(nameToList.name);// Append the option to the select element
+    }
+    else{
+        for (var i = 0; i < folderInDir.length; i++){
+            const nameToList = document.createElement('li');
+            nameToList.value = folderInDir[i].name; // Set the value attribute
+            nameToList.appendChild(document.createTextNode(folderInDir[i].name)); // Set the text content // Set the text content
+            folderPrint.appendChild(nameToList); // Append the option to the select element
+        }
+        // Add your logic here based on the selected folder
+    }
+});
 function saveNotes() {
     // Save notes to localStorage before leaving the page
     localStorage.setItem('notes', JSON.stringify(notes));
 }
-
 function startSpeechToText() {
     const recognition = new webkitSpeechRecognition() || new SpeechRecognition();
     
@@ -196,12 +234,16 @@ function addFile() {
     newNote.button.setAttribute("class", "note");
     newNote.button.textContent = fileName;
     newNote.button.addEventListener('click', () => editTextArea(newNote));
-    filebar.appendChild(newNote.button);
+    updateSelector();
+    loadContentNamesToDiv();
     currentID = currentID + 1;
+
+    /*
     // Clear the content of the textarea and set the current note to the new note
     let writingTextarea = document.querySelector('.writing');
     writingTextarea.value = '';  // Clear the textarea
     currentNote = newNote;
+    */
 }
 function addFolder() {
     let filebar = document.querySelector('.files');
@@ -218,7 +260,9 @@ function addFolder() {
     newFolder.button.setAttribute("id", id);
     newFolder.button.setAttribute("class", "folder");
     newFolder.button.textContent = folderName;
-    filebar.appendChild(newFolder.button);
+    currentID = currentID + 1;
+    updateSelector();
+    loadContentNamesToDiv();
     currentID = currentID + 1;
     // Clear the content of the textarea and set the current note to the new note
 }
@@ -259,7 +303,7 @@ function rebuildNoteButtons() {
         note.button = document.createElement('button');
         note.button.setAttribute("id", id);
         note.button.setAttribute("class", "note");
-        note.button.textContent = note.title;
+        note.button.textContent = note.name;
         note.button.addEventListener('click', () => editTextArea(note));
         filebar.appendChild(note.button);
     }
@@ -289,4 +333,44 @@ function zoomText() {
     var currentSize = window.getComputedStyle(filesText).fontSize;
     var newSize = parseFloat(currentSize) * 1.2; // Increase font size by 20%
     filesText.style.fontSize = newSize + 'px';
+}
+function loadContentNamesToDiv() {
+    const directoryDisplayDiv = document.querySelector('.directory-display');
+
+    // Clear the existing content in the div
+    directoryDisplayDiv.innerHTML = '';
+
+    // Iterate through the files in dir
+    dir.files.forEach(file => {
+        
+        if (file.constructor.name === 'Note' || file.constructor.name === 'Image' || file.constructor.name === 'Video') {
+            let itemDiv = document.createElement('div');
+            itemDiv.setAttribute("class", "listing");
+            let img = document.createElement('img');
+            img.setAttribute("class", "file-img");
+            img.src ='assets/file-icon.png';
+            let nameToList = document.createElement('span');
+            nameToList.textContent = file.name;
+            nameToList.setAttribute("class", "listing-span");
+            itemDiv.appendChild(img);
+            itemDiv.appendChild(nameToList);
+
+            directoryDisplayDiv.appendChild(itemDiv);
+        }
+        else{
+            let itemDiv = document.createElement('div');
+            itemDiv.setAttribute("class", "listing");
+            let img = document.createElement('img');
+            img.setAttribute("class", "file-img");
+            img.src = 'assets/folder-icon.png';
+            let nameToList = document.createElement('span');
+            nameToList.textContent = file.name;
+            nameToList.setAttribute("class", "listing-span");
+            itemDiv.appendChild(img);
+            itemDiv.appendChild(nameToList);
+
+            directoryDisplayDiv.appendChild(itemDiv);
+            
+        }
+    });
 }
