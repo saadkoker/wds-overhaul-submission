@@ -83,11 +83,6 @@ body {
     max-height: 24px; /* Limit the height of images */
 }
 
-/* Hover effect for links */
-.navbar2 a:hover {
-    color: #7D7DF7; /* Highlight color on hover */
-}
-
 .head {
     margin: 128px 0 0 48px;
     width: calc(100% - 648px);
@@ -125,9 +120,9 @@ body {
     width: 80%;
     color:steelblue;
     display: inline;
-    font-size: 15px;
+    font-size: 20px;
     font-family:'Roboto';
-    line-height: 1.5;
+    line-height: 1.7;
 }
 
 .actions {
@@ -218,23 +213,39 @@ body {
 }
 
 .sidebar {
-    height: calc(100% - 48px);
+    height: 100vh;
     width: 20%;
-    border-right: 1px solid var(--border);
-    padding: 24px;
-    overflow-y: auto;
-}
-
-.sidebar > .top {
-    font-size: 16px;
+    background-color: white;
+    padding-top: 20px;
+    color: black;
     display: flex;
-    justify-content: space-between;
-    font-weight: bold;
-    font-family: 'Roboto';
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 16px;
+    flex-direction: column;
+    align-items: center;
 }
 
+.top-section {
+    width: 305px;
+    height: 49px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+
+}
+
+.top-section img {
+    width: 30px; /* Adjust the size of the file image */
+    margin-right: 10px;
+    align-items: center;
+}
+
+.files-section,
+.folders-section {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
 .notes {
     width: 80%;
     height: 100%;
@@ -437,6 +448,8 @@ label {
 }
 
 .upload-btn {
+    display: flex;
+    align-items: center; /* Align items vertically */
     padding: 10px;
     border: none;
     cursor: pointer;
@@ -445,25 +458,59 @@ label {
     width: 675px;
     height: 59.555px;
     flex-shrink: 0;
+    font-size: 20px;
+    text-align: center;
+    justify-content: center;
+    color: black;
 }
 
 .upload-btn img {
-    margin-right: 5px; /* Adjust margin as needed */
+    margin-right: 10px; /* Adjust margin as needed */
+    width: 20px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
 }
 
 
 
 .search-container {
     display: flex;
-    
+    border-radius: 20px;
+   
 }
 
 .search-bar {
     padding: 10px;
-    margin-right: 25px;
+    cursor: pointer;
     border-radius: 20px;
     background: #F1F1F1;
-    width: 708.242px;
-    height: 59.555px;
+    width: 675px;
+    height: 39.555px;
     flex-shrink: 0;
+    text-align: center;
+    font-size: 20px;
+
+}
+
+.directory-display {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    gap: 10px; /* Add some space between items */
+}
+
+.listing {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    padding: 40px; /* Add padding for better spacing */
+    border-radius: 10px; /* Add border-radius for rounded corners */
+}
+
+.file-img {
+    width: 90px; /* Adjust the size of the image */
+    height: 100px;
+    margin-bottom: 5px; /* Add some space between the image and text */
+}
+
+.listing-span {
+    font-size: 40px; /* Adjust font size if needed */
 }
