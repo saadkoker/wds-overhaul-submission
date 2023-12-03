@@ -534,3 +534,8 @@ footer {
     width: 30px; /* Adjust the width of the image */
     margin-right: 10px; /* Add space between the image and text */
 }
+
+.highlighted-text {
+    background-color: yellow;
+    /* Add any additional styles you want for the highlighted text */
+}

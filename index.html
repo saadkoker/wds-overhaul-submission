@@ -45,5 +45,46 @@
         <span class="copy">Copyright © 2023, Western Developers Society</div>
     </main>
 	<script src="script.js"></script>
+  <script>
+    // Your existing code goes here
+
+    let msg = new SpeechSynthesisUtterance();
+    let voices = speechSynthesis.getVoices();
+    msg.voice = voices[0];
+    let isTextSpoken = false;
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && window.getSelection().toString() !== '' && !isTextSpoken) {
+            let selectedText = window.getSelection().toString();
+            let range = window.getSelection().getRangeAt(0);
+            
+            // Create a unique identifier for the mark element
+            let uniqueId = 'highlight_' + Date.now();
+            
+            // Create a mark element with a unique class
+            let mark = document.createElement('mark');
+            mark.className = 'custom-highlight';
+            mark.id = uniqueId;
+            mark.appendChild(range.extractContents());
+            range.insertNode(mark);
+
+            // Speak the selected text
+            msg.text = selectedText;
+            speechSynthesis.speak(msg);
+
+            isTextSpoken = true;
+
+            msg.addEventListener('end', () => {
+                // Remove the mark element after speech
+                let highlightedElement = document.getElementById(uniqueId);
+                if (highlightedElement) {
+                    highlightedElement.outerHTML = highlightedElement.innerHTML;
+                }
+                isTextSpoken = false;
+            });
+        }
+    });
+  </script>
+
   </body>
 </html>
