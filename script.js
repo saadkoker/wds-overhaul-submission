@@ -104,7 +104,6 @@ document.addEventListener('keydown', (e) => {
         });
     }
 });
-document.querySelector('.register_form').addEventListener('submit', signup);
 
 if(window.location.href.includes('filestoring.html')) {
     const addButton = document.getElementById('addButton');
