@@ -193,6 +193,7 @@ body {
     width: 20%;
     border-right: 1px solid var(--border);
     padding: 24px;
+    overflow-y: auto;
 }
 
 .sidebar > .top {
