@@ -413,9 +413,13 @@ body {
 }
 
 .pricing-container {
+    margin-inline-start: 3rem;
     display: flex;
     justify-content: center;
     margin-top: 60px;
+    background-color: #f2f2f2; /* Light grey background */
+    padding: 20px; /* Adjust as needed */
+    border-radius: 10px; /* Optional: Rounded corners */
     background-color: #f2f2f2;
     /* Light grey background */
     padding: 20px;
@@ -427,8 +431,8 @@ body {
 }
 
 .pricing-plan {
-    width: 45%;
-    padding: 100px;
+    width: 30%;
+    padding: 60px;
     background-color: white;
     margin: 0 10px;
     /* Adjust spacing between boxes */
@@ -476,6 +480,7 @@ body {
     font-feature-settings: 'clig' off, 'liga' off;
     font-family: Roboto;
     font-size: 110%;
+    gap: 10px;
     font-style: normal;
     font-weight: 400;
     margin-bottom: 12px;
@@ -630,9 +635,9 @@ input[type="radio"] {
 }
 
 .file-img {
-    width: 150px;
+    width: 177px;
     /* Adjust the size of the image */
-    height: 100%;
+    height: 198px;
     margin-bottom: 5px;
     /* Add some space between the image and text */
 }

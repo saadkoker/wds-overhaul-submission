@@ -117,6 +117,14 @@ if(window.location.href.includes('filestoring.html')) {
 
             if (selectedOption === 'newFile') {
                 addFile();
+                var elements = document.getElementsByTagName("input");
+
+                for (var i = 0; i < elements.length; i++) {
+                        if (elements[i].type == "radio") {
+                            elements[i].checked = false;
+                        }
+                    }
+                
                 // Add your file-specific logic here
             } else if (selectedOption === 'newFolder') {
                 addFolder();
