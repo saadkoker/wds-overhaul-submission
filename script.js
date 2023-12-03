@@ -64,8 +64,26 @@ const radioGroup = document.getElementById('radioGroup');
     });
 
 
+
 // Add event listener for beforeunload
 window.addEventListener('beforeunload', saveNotes);
+
+const foldersSelect = document.getElementById('folders');
+
+    // Sample data for folders
+    const folderOptions = [];
+
+    dir.files.forEach(file => {
+        folderOptions.add(file.name); // Append the option to the select element
+    });
+
+    // Loop through the folder options and add them to the select element
+    folderOptions.forEach(folder => {
+        const option = document.createElement('option');
+        option.value = folder; // Set the value attribute
+        option.text = folder;  // Set the text content
+        foldersSelect.add(option); // Append the option to the select element
+    });
 
 function saveNotes() {
     // Save notes to localStorage before leaving the page
