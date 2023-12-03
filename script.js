@@ -461,7 +461,6 @@ function loadContentNamesToDiv() {
                 localStorage.setItem('currentNoteContent', file.content);
             });
         }
-        directoryDisplayDiv.appendChild(itemDiv);
     });
 }
 

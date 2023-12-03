@@ -1,5 +1,5 @@
 body {
-    --btn-primary: #7D7DF7;
+    --btn-primary: #82C3FF;
     --border: #C0BFBF;
     --link-color: #505F98;
     --btn-primary-dark: #111b47;
@@ -201,6 +201,7 @@ body {
     background-color: var(--btn-primary);
     padding: 4px 12px;
     color: white !important;
+    margin-inline-end: 0.5rem;
 }
 
 .copy {
@@ -495,6 +496,7 @@ body {
 
 /* Style for hiding the radio buttons initially */
 .radio-group {
+    margin-top: 1rem;
     display: none;
 }
 
@@ -518,12 +520,15 @@ label {
     font-family: 'Roboto', sans-serif;
 
 }
+input[type="radio"] {
+    display: none;
+  }
 
 .highlight-box {
     background-color: #AEE2FF;
     padding: 10px;
     margin: 10px 0;
-    /* Adjust margin as needed */
+    margin-inline-start: 2rem;
     border-radius: 15px;
     position: absolute;
     left: -5px;
@@ -625,16 +630,16 @@ label {
 }
 
 .file-img {
-    width: 90px;
+    width: 150px;
     /* Adjust the size of the image */
-    height: 100px;
+    height: 100%;
     margin-bottom: 5px;
     /* Add some space between the image and text */
 }
 
 .listing-span {
-    font-size: 40px;
-    /* Adjust font size if needed */
+    font-size: 12px;
+    font-family: 'Roboto', sans-serif;
 }
 
 footer {
