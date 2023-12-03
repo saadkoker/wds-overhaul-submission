@@ -514,3 +514,23 @@ label {
 .listing-span {
     font-size: 40px; /* Adjust font size if needed */
 }
+
+footer {
+    color: grey; /* Set text color for the footer */
+    padding: 10px; /* Add padding to the footer */
+    position: fixed;
+    bottom: 12px;
+    left: 12px;
+    
+}
+
+.footer-content {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    color: grey;
+}
+
+.footer-content img {
+    width: 30px; /* Adjust the width of the image */
+    margin-right: 10px; /* Add space between the image and text */
+}
