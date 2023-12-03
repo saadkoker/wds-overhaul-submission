@@ -12,7 +12,15 @@
     <div class="navbar2">
         <div class="pages2">
             <a href="#add-file" class="add-button">
-                <img src="assets/add-button.png" alt="Add File">
+                <img src="assets/add-button.png" alt="Add File" id="addButton">
+                <div class="radio-group" id="radioGroup">
+                  <label>
+                      <input type="radio" name="fileOrFolder" value="newFile"> New File
+                  </label>
+                  <label>
+                      <input type="radio" name="fileOrFolder" value="newFolder"> New Folder
+                  </label>
+              </div>
                 <img src="assets/three-dots.png" alt="Three Dots">
             <a href="#home"><img src="assets/home-icon.png" alt="Home"></a>
             </a>
@@ -42,5 +50,5 @@
         </div>
     </div>
   </body>
-  <script src="script.js"></script>
+  <script defer src="script.js"></script>
 </html>

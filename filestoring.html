@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>InkLink</title>
     <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="icon" href="assets/link.png" type="image/x-icon">
   </head>
   <body>
@@ -26,7 +29,6 @@
             <a href="#home"><img src="assets/home-icon.png" alt="Home"></a>
         </div>
         <div class="general2">
-            <a class="note" href="#speak-text"><img class="headphones" src="assets/headphones.png" alt="Text to Speech"></a>
             <a href="#record-text"><img src="assets/zoom.png" alt="Zoom"></a>
             <a href="#record-text"><img src="assets/copy.png" alt="Copy Text"></a>
             <a class="tts" href="#record-text"><img src="assets/mic.png" alt="Record Text"></a>
@@ -62,45 +64,5 @@
     </div>
   </footer>
 </body>
-<script>
-  // Your existing code goes here
-
-  let msg = new SpeechSynthesisUtterance();
-  let voices = speechSynthesis.getVoices();
-  msg.voice = voices[0];
-  let isTextSpoken = false;
-
-  document.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' && window.getSelection().toString() !== '' && !isTextSpoken) {
-          let selectedText = window.getSelection().toString();
-          let range = window.getSelection().getRangeAt(0);
-          
-          // Create a unique identifier for the mark element
-          let uniqueId = 'highlight_' + Date.now();
-          
-          // Create a mark element with a unique class
-          let mark = document.createElement('mark');
-          mark.className = 'custom-highlight';
-          mark.id = uniqueId;
-          mark.appendChild(range.extractContents());
-          range.insertNode(mark);
-
-          // Speak the selected text
-          msg.text = selectedText;
-          speechSynthesis.speak(msg);
-
-          isTextSpoken = true;
-
-          msg.addEventListener('end', () => {
-              // Remove the mark element after speech
-              let highlightedElement = document.getElementById(uniqueId);
-              if (highlightedElement) {
-                  highlightedElement.outerHTML = highlightedElement.innerHTML;
-              }
-              isTextSpoken = false;
-          });
-      }
-  });
-</script>
 <script src="script.js"></script>
 </html>

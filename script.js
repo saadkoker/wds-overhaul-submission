@@ -36,11 +36,74 @@ class Directory {
 let dir = new Directory();
 let notes = dir.files;
 let buttonIDs = [];
+let uniqueIds = [];
+let isTextSpoken = false;
 let currentNote = new Note("Lol");
 let currentID = 0;
 
 document.addEventListener("DOMContentLoaded", attachListeners);
 document.addEventListener("DOMContentLoaded", checkPage);
+document.addEventListener('DOMContentLoaded', function () {
+    
+    var path = window.location.pathname;
+    var page = path.split("/").pop();
+
+    var links = document.querySelectorAll('.navBar a');
+    links.forEach(function(link) {
+      if (link.getAttribute('href') === page) {
+        link.classList.add('current');
+      }
+    });
+  });
+
+document.addEventListener('keydown', (e) => {
+
+    const msg = new SpeechSynthesisUtterance();
+
+    if (e.key === 'Enter' && window.getSelection().toString() !== '' && !isTextSpoken) {
+        let selectedText = window.getSelection().toString();
+        let range = window.getSelection().getRangeAt(0);
+
+        // Create a unique identifier for the mark element
+        let uniqueId = 'highlight_' + Date.now();
+
+        // Add the unique ID to the list
+        uniqueIds.push(uniqueId);
+
+        // Create a mark element with a unique class
+        let mark = document.createElement('mark');
+        mark.className = 'custom-highlight';
+        mark.id = uniqueId;
+
+        // Wrap the extracted contents with a span
+        let wrapper = document.createElement('span');
+        wrapper.appendChild(range.extractContents());
+        mark.appendChild(wrapper);
+
+        range.insertNode(mark);
+
+        // Speak the selected text
+        msg.text = selectedText;
+        speechSynthesis.speak(msg);
+
+        isTextSpoken = true;
+
+        msg.addEventListener('end', () => {
+            // Remove the mark elements after speech using unique IDs
+            uniqueIds.forEach(id => {
+                let highlightedElement = document.getElementById(id);
+                if (highlightedElement) {
+                    highlightedElement.replaceWith(...highlightedElement.childNodes);
+                }
+            });
+
+            // Clear the unique IDs list
+            uniqueIds.length = 0;
+
+            isTextSpoken = false;
+        });
+    }
+});
 
 if(window.location.href.includes('filestoring.html')) {
     const addButton = document.getElementById('addButton');
