@@ -33,4 +33,45 @@
     </div>
   </body>
   <script src="script.js"></script>
+  <script>
+    let msg = new SpeechSynthesisUtterance();
+    let voices = speechSynthesis.getVoices();
+    msg.voice = voices[0];
+    let tags = document.querySelectorAll('p,a,h1,h2,h3,div,img,span'); // add more tags for your project
+
+    let isTextSpoken = false;
+
+    document.addEventListener('keyup', handleKeyup);
+
+    function handleKeyup(e) {
+        if (e.key === 'Enter' && window.getSelection().toString() !== '' && !isTextSpoken) {
+            let selectedText = window.getSelection().toString();
+            let range = window.getSelection().getRangeAt(0);
+            let span = document.createElement('span');
+            span.style.backgroundColor = 'yellow';
+            span.appendChild(range.extractContents());
+            range.deleteContents();
+            range.insertNode(span);
+
+            msg.text = selectedText;
+            speechSynthesis.speak(msg);
+
+            isTextSpoken = true;
+
+            msg.addEventListener('end', handleSpeechEnd);
+        }
+    }
+
+    function handleSpeechEnd() {
+        // Remove the background color from all spans
+        let spans = document.querySelectorAll('span[style="background-color: yellow;"]');
+        spans.forEach((span) => {
+            span.style.backgroundColor = '';
+        });
+
+        isTextSpoken = false;
+
+        msg.removeEventListener('end', handleSpeechEnd);
+    }
+  </script>
 </html>
