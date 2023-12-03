@@ -206,6 +206,34 @@ body {
     font-size: 24px;
     cursor: pointer;
 }
+.register-form {
+    margin:auto;
+    margin-top: 120px;
+    width: 80%; /* Adjust the width as needed */
+    max-width: 400px; /* Set your desired maximum width */
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+}
+
+.register-form input {
+    width: 100%;
+    height: 40px; /* Adjust the height as needed */
+    text-align: center;
+    font-size: 16px; /* Adjust the font size as needed */
+    border: 1px solid #ccc; /* Set your desired border color */
+    border-radius: 5px;
+    outline: none;
+}
+
+.register-form input[type="submit"] {
+    cursor: pointer;
+    background-color: #111b47; /* Set your desired background color for the submit button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
 
 .notes_main {
     display: flex;
@@ -472,7 +500,7 @@ label {
 }
 
 .upload-btn img {
-    margin-right: 10px; /* Adjust margin as needed */
+    margin-left: 10px; /* Adjust margin as needed */
     width: 20px; /* Adjust width as needed */
     height: auto; /* Maintain aspect ratio */
 }
@@ -538,8 +566,8 @@ footer {
 }
 
 .footer-content img {
-    width: 30px; /* Adjust the width of the image */
-    margin-right: 10px; /* Add space between the image and text */
+    width: 150px; /* Adjust the width of the image */
+    margin-right: 1px; /* Add space between the image and text */
 }
 
 .highlighted-text {

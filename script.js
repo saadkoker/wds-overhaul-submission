@@ -41,6 +41,7 @@ let currentID = 0;
 
 document.addEventListener("DOMContentLoaded", attachListeners);
 document.addEventListener("DOMContentLoaded", checkPage);
+document.querySelector('.register_form').addEventListener('submit', signup);
 
 if(window.location.href.includes('filestoring.html')) {
     const addButton = document.getElementById('addButton');
@@ -147,7 +148,7 @@ function attachListeners() {
     if (addButton) {
         addButton.addEventListener('click', addFile);
     }
-
+    
     const speechToTextButton = document.querySelector('#tts');
     if (speechToTextButton) {
         speechToTextButton.addEventListener('click', startSpeechToText);
@@ -287,6 +288,17 @@ function login(event) {
 
     let username = document.querySelector('.login_form input[type="username"]').value;
     let password = document.querySelector('.login_form input[type="password"]').value;
+
+    localStorage.setItem('username', username);
+    localStorage.setItem('password', password);
+
+    window.location = 'notes.html';
+}
+function signup(event) {
+    event.preventDefault();
+
+    let username = document.querySelector('.register_form input[type="email"]').value;
+    let password = document.querySelector('.register_form input[type="password"]').value;
 
     localStorage.setItem('username', username);
     localStorage.setItem('password', password);
