@@ -21,7 +21,7 @@ body {
     text-decoration: none;
 }
 
-  
+
 .navBar a.current {
     text-decoration: underline;
 }
@@ -30,12 +30,17 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: black; /* Dark background color */
-    padding: 10px 20px; /* Adjust padding as needed */
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Box shadow for a subtle lift */
+    background-color: black;
+    /* Dark background color */
+    padding: 10px 20px;
+    /* Adjust padding as needed */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    /* Optional: Box shadow for a subtle lift */
     position: relative;
-    width: 100%; /* Make sure the navbar spans the entire width */
-    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    width: 100%;
+    /* Make sure the navbar spans the entire width */
+    box-sizing: border-box;
+    /* Include padding and border in element's total width and height */
 }
 
 .pages {
@@ -54,12 +59,16 @@ body {
 }
 
 .pages2 a {
-    color: #ffffff; /* White text color */
+    color: #ffffff;
+    /* White text color */
     text-decoration: none;
-    font-size: 16px; /* Adjust font size as needed */
+    font-size: 16px;
+    /* Adjust font size as needed */
 }
+
 .pages2 img {
-    max-height: 24px; /* Limit the height of images */
+    max-height: 24px;
+    /* Limit the height of images */
 }
 
 
@@ -81,13 +90,16 @@ body {
 }
 
 .general2 a {
-    color: #ffffff; /* White text color */
+    color: #ffffff;
+    /* White text color */
     text-decoration: none;
-    font-size: 16px; /* Adjust font size as needed */
+    font-size: 16px;
+    /* Adjust font size as needed */
 }
 
 .general2 img {
-    max-height: 24px; /* Limit the height of images */
+    max-height: 24px;
+    /* Limit the height of images */
 }
 
 .head {
@@ -109,24 +121,25 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-.title > .title {
+.title>.title {
     font-size: 64px;
     font-family: "Roboto";
 }
 
-.title > .title2 {
+.title>.title2 {
     font-size: 48px;
     font-family: "Roboto";
 
 }
-.title > img {
+
+.title>img {
     margin: -84px 0;
 
 }
 
 .description {
     width: 80%;
-    color:steelblue;
+    color: steelblue;
     display: inline;
     font-size: 20px;
     font-family: 'Roboto', sans-serif;
@@ -140,7 +153,7 @@ body {
     z-index: 10;
 }
 
-.actions > a {
+.actions>a {
     padding: 8px 0;
     width: 45%;
     font-size: 16px;
@@ -207,18 +220,21 @@ body {
     align-items: center;
 }
 
-.login_form > input {
+.login_form>input {
     width: 100%;
     height: 64px;
     text-align: center;
     font-size: 24px;
     cursor: pointer;
 }
+
 .register-form {
-    margin:auto;
+    margin: auto;
     margin-top: 120px;
-    width: 80%; /* Adjust the width as needed */
-    max-width: 400px; /* Set your desired maximum width */
+    width: 80%;
+    /* Adjust the width as needed */
+    max-width: 400px;
+    /* Set your desired maximum width */
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -227,17 +243,41 @@ body {
 
 .register-form input {
     width: 100%;
-    height: 40px; /* Adjust the height as needed */
+    height: 40px;
+    /* Adjust the height as needed */
     text-align: center;
-    font-size: 16px; /* Adjust the font size as needed */
-    border: 1px solid #ccc; /* Set your desired border color */
+    font-size: 16px;
+    /* Adjust the font size as needed */
+    border: 1px solid #ccc;
+    /* Set your desired border color */
     border-radius: 5px;
     outline: none;
 }
 
+.emptydir{
+    font-family: 'Roboto', sans-serif;
+    position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+}
+.span-container{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Adjust the height as needed */
+
+}
+::placeholder {
+    text-align: left;
+    font: 1em sans-serif;
+}
+
 .register-form input[type="submit"] {
     cursor: pointer;
-    background-color: #111b47; /* Set your desired background color for the submit button */
+    background-color: #111b47;
+    /* Set your desired background color for the submit button */
     color: white;
     border: none;
     border-radius: 5px;
@@ -271,9 +311,17 @@ body {
 }
 
 .top-section img {
-    width: 30px; /* Adjust the size of the file image */
+    width: 30px;
+    /* Adjust the size of the file image */
     margin-right: 10px;
     align-items: center;
+}
+
+.files-section,
+.folders-section {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 .notes {
@@ -292,9 +340,10 @@ body {
 
 .tts {
     position: absolute;
-    top: 10px; 
+    top: 10px;
     right: 10px;
 }
+
 .writing {
     resize: none;
     background: transparent;
@@ -317,7 +366,7 @@ body {
     padding: 12px 0;
 }
 
-.files > button {
+.files>button {
     width: 80%;
     height: 28px;
     font-size: 20px;
@@ -325,7 +374,8 @@ body {
 
 .search-container {
     float: right;
-    margin-right: 20px; /* Adjust the margin as needed */
+    margin-right: 20px;
+    /* Adjust the margin as needed */
 }
 
 .search-bar {
@@ -334,10 +384,14 @@ body {
     border-radius: 5px;
     margin-right: 5px;
 }
+.search-bar input{
+    text-align: left;
+}
 
 .upload-btn {
     padding: 10px;
-    background-color: #4CAF50; /* Green background color */
+    background-color: #4CAF50;
+    /* Green background color */
     color: white;
     border: none;
     border-radius: 5px;
@@ -345,23 +399,28 @@ body {
 }
 
 .upload-btn:hover {
-    background-color: #45a049; /* Darker green on hover */
+    background-color: #45a049;
+    /* Darker green on hover */
 }
 
 .main {
     text-align: center;
 }
+
 .head2 {
     margin: 64px 0 0 0;
 }
-  
+
 .pricing-container {
     display: flex;
     justify-content: center;
     margin-top: 60px;
-    background-color: #f2f2f2; /* Light grey background */
-    padding: 20px; /* Adjust as needed */
-    border-radius: 10px; /* Optional: Rounded corners */
+    background-color: #f2f2f2;
+    /* Light grey background */
+    padding: 20px;
+    /* Adjust as needed */
+    border-radius: 10px;
+    /* Optional: Rounded corners */
     width: 70%;
     height: 50%;
 }
@@ -370,9 +429,12 @@ body {
     width: 45%;
     padding: 100px;
     background-color: white;
-    margin: 0 10px; /* Adjust spacing between boxes */
-    border-radius: 8px; /* Optional: Rounded corners */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Box shadow for a subtle lift */
+    margin: 0 10px;
+    /* Adjust spacing between boxes */
+    border-radius: 8px;
+    /* Optional: Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Optional: Box shadow for a subtle lift */
     line-height: 2;
 }
 
@@ -384,10 +446,11 @@ body {
     font-size: 36px;
     font-style: normal;
     font-weight: 700;
-    line-height: 66px; /* 183.333% */
+    line-height: 66px;
+
     letter-spacing: 1px;
-  }
-  
+}
+
 .pricing-plan h3 {
     color: #7B7B7B;
     text-align: center;
@@ -396,16 +459,17 @@ body {
     font-size: 32px;
     font-style: normal;
     font-weight: 500;
-    line-height: 66px; /* 206.25% */
+    line-height: 66px;
+
     letter-spacing: 1px;
-  }
-  
+}
+
 .pricing-plan ul {
     list-style-type: none;
     padding: 0;
     margin-top: 20px;
-  }
-  
+}
+
 .pricing-plan li {
     color: var(--colour-main-blue-500, #505F98);
     font-feature-settings: 'clig' off, 'liga' off;
@@ -413,20 +477,22 @@ body {
     font-size: 110%;
     font-style: normal;
     font-weight: 400;
-    margin-bottom: 12px; /* Increase margin between list items */
+    margin-bottom: 12px;
+    /* Increase margin between list items */
     display: flex;
     align-items: center;
     font-family: 'Roboto', sans-serif;
-  }
-  
+}
+
 .pricing-plan li img {
     margin-right: 20px;
-  }
+}
 
 .pricing-plan a {
-    color: #333; 
+    color: #333;
     font-family: 'Roboto', sans-serif;
 }
+
 /* Style for hiding the radio buttons initially */
 .radio-group {
     display: none;
@@ -440,11 +506,12 @@ label {
     color: #fff;
     border-radius: 5px;
 }
+
 .pricing-plan a {
     display: block;
     margin-top: 50px;
     padding: 15px;
-    background-color:#111b47;
+    background-color: #111b47;
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -453,13 +520,14 @@ label {
 }
 
 .highlight-box {
-    background-color: #AEE2FF; 
+    background-color: #AEE2FF;
     padding: 10px;
-    margin: 10px 0; /* Adjust margin as needed */
+    margin: 10px 0;
+    /* Adjust margin as needed */
     border-radius: 15px;
     position: absolute;
-    left: -5px; 
-    top: 80px; 
+    left: -5px;
+    top: 80px;
 }
 
 .highlight-box span {
@@ -474,17 +542,22 @@ label {
 
 .action-boxes {
     display: flex;
-    gap: 10px; /* Adjust the gap between boxes */
-    margin-top: 175px; /* Adjust margin as needed */
+    gap: 10px;
+    align-content: center;
+    /* Adjust the gap between boxes */
+    margin-top: 175px;
+    /* Adjust margin as needed */
 }
 
 /* Hide the actual file input */
 #file-input {
     display: none;
 }
+
 .upload-btn {
     display: flex;
-    align-items: center; /* Align items vertically */
+    align-items: center;
+    /* Align items vertically */
     padding: 10px;
     border: none;
     cursor: pointer;
@@ -500,9 +573,12 @@ label {
 }
 
 .upload-btn img {
-    margin-left: 10px; /* Adjust margin as needed */
-    width: 20px; /* Adjust width as needed */
-    height: auto; /* Maintain aspect ratio */
+    margin-left: 10px;
+    /* Adjust margin as needed */
+    width: 20px;
+    /* Adjust width as needed */
+    height: auto;
+    /* Maintain aspect ratio */
 }
 
 
@@ -510,64 +586,80 @@ label {
 .search-container {
     display: flex;
     border-radius: 20px;
-   
+    align-self: center;
 }
 
 .search-bar {
     padding: 10px;
+    margin-inline-start: 2rem;
     cursor: pointer;
     border-radius: 20px;
     background: #F1F1F1;
-    width: 675px;
+    width: 45rem;
     height: 39.555px;
     flex-shrink: 0;
-    text-align: center;
+    text-align: left;
     font-size: 20px;
+    align-self: center;
 
 }
 
 .directory-display {
     display: flex;
-    flex-wrap: wrap; /* Allow items to wrap to the next line */
-    gap: 10px; /* Add some space between items */
+    flex-wrap: wrap;
+    /* Allow items to wrap to the next line */
+    gap: 10px;
+    /* Add some space between items */
 }
 
 .listing {
     display: flex;
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center items horizontally */
-    padding: 40px; /* Add padding for better spacing */
-    border-radius: 10px; /* Add border-radius for rounded corners */
+    flex-direction: column;
+    /* Stack items vertically */
+    align-items: center;
+    /* Center items horizontally */
+    padding: 40px;
+    /* Add padding for better spacing */
+    border-radius: 10px;
+    /* Add border-radius for rounded corners */
 }
 
 .file-img {
-    width: 90px; /* Adjust the size of the image */
+    width: 90px;
+    /* Adjust the size of the image */
     height: 100px;
-    margin-bottom: 5px; /* Add some space between the image and text */
+    margin-bottom: 5px;
+    /* Add some space between the image and text */
 }
 
 .listing-span {
-    font-size: 40px; /* Adjust font size if needed */
+    font-size: 40px;
+    /* Adjust font size if needed */
 }
 
 footer {
-    color: grey; /* Set text color for the footer */
-    padding: 10px; /* Add padding to the footer */
+    color: grey;
+    /* Set text color for the footer */
+    padding: 10px;
+    /* Add padding to the footer */
     position: fixed;
     bottom: 12px;
     left: 12px;
-    
+
 }
 
 .footer-content {
     display: flex;
-    align-items: center; /* Align items vertically */
+    align-items: center;
+    /* Align items vertically */
     color: grey;
 }
 
 .footer-content img {
-    width: 150px; /* Adjust the width of the image */
-    margin-right: 1px; /* Add space between the image and text */
+    width: 150px;
+    /* Adjust the width of the image */
+    margin-right: 1px;
+    /* Add space between the image and text */
 }
 
 .highlighted-text {
