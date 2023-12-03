@@ -447,6 +447,11 @@ label {
     margin-top: 175px; /* Adjust margin as needed */
 }
 
+/* Hide the actual file input */
+#file-input {
+    display: none;
+}
+
 .upload-btn {
     display: flex;
     align-items: center; /* Align items vertically */
