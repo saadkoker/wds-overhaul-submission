@@ -451,7 +451,9 @@ label {
 #file-input {
     display: none;
 }
-
+.custom-highlight{
+    display: none;
+}
 .upload-btn {
     display: flex;
     align-items: center; /* Align items vertically */
