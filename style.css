@@ -415,21 +415,22 @@ body {
 .action-boxes {
     display: flex;
     gap: 10px; /* Adjust the gap between boxes */
-    margin-top: 10px; /* Adjust margin as needed */
+    margin-top: 175px; /* Adjust margin as needed */
 }
 
 .upload-btn {
     padding: 10px;
-    background-color: #4CAF50; /* Green background color */
-    color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    border-radius: 20px;
+    border-radius: 20px;
+    background: linear-gradient(0deg, #82C3FF 0%, #82C3FF 100%), linear-gradient(0deg, #82C3FF 0%, #82C3FF 100%), #82C3FF;
+
+
 }
 
-.upload-btn:hover {
-    background-color: #45a049; /* Darker green on hover */
-}
+
 
 .search-container {
     display: flex;
