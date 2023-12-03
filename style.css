@@ -439,24 +439,31 @@ label {
 .upload-btn {
     padding: 10px;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
     border-radius: 20px;
-    border-radius: 20px;
     background: linear-gradient(0deg, #82C3FF 0%, #82C3FF 100%), linear-gradient(0deg, #82C3FF 0%, #82C3FF 100%), #82C3FF;
+    width: 675px;
+    height: 59.555px;
+    flex-shrink: 0;
+}
 
-
+.upload-btn img {
+    margin-right: 5px; /* Adjust margin as needed */
 }
 
 
 
 .search-container {
     display: flex;
+    
 }
 
 .search-bar {
     padding: 10px;
-    border: none;
-    border-radius: 5px;
-    margin-right: 5px;
+    margin-right: 25px;
+    border-radius: 20px;
+    background: #F1F1F1;
+    width: 708.242px;
+    height: 59.555px;
+    flex-shrink: 0;
 }
