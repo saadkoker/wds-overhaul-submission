@@ -5,14 +5,64 @@ class Note {
         this.button; // Reference to the associated button
     }
 }
+class Image {
+    constructor(name ,path) {
+        this.name = name;
+        this.path = path;
+    }
+}
+class Video {
+    constructor(name ,path) {
+        this.name = name;
+        this.path = path;
+    }
+}
+class Folder {
 
-let notes = [];
+    constructor(name){
+        this.name = name;
+        this.files = [];
+        this.button;
+    }
+}
+class Directory {
+    constructor(){
+        this.files = [];
+    }
+}
+
+let dir = new Directory();
+let notes = dir.files;
 let buttonIDs = [];
 let currentNote;
 let currentID = 0;
 
 document.addEventListener("DOMContentLoaded", attachListeners);
 document.addEventListener("DOMContentLoaded", checkPage);
+
+const addButton = document.getElementById('addButton');
+const radioGroup = document.getElementById('radioGroup');
+
+    // Add event listener for changes in the radio button selection
+    radioGroup.addEventListener('change', function (event) {
+        // Hide the radio button group when an option is selected
+        radioGroup.style.display = 'none';
+        const selectedOption = event.target.value;
+
+        if (selectedOption === 'newFile') {
+            addFile();
+            // Add your file-specific logic here
+        } else if (selectedOption === 'newFolder') {
+            addFolder();
+            // Add your folder-specific logic here
+        }
+    });
+
+    addButton.addEventListener('click', function () {
+        // Toggle the display of the radio button group
+        radioGroup.style.display = (radioGroup.style.display === 'none' || radioGroup.style.display === '') ? 'block' : 'none';
+    });
+
 
 // Add event listener for beforeunload
 window.addEventListener('beforeunload', saveNotes);
@@ -134,6 +184,25 @@ function addFile() {
     let writingTextarea = document.querySelector('.writing');
     writingTextarea.value = '';  // Clear the textarea
     currentNote = newNote;
+}
+function addFolder() {
+    let filebar = document.querySelector('.files');
+    let folderName = prompt('Enter a unique name for your new folder:');
+    let id = currentID.toString();
+    if (!folderName) {
+        // If the user cancels the prompt, return early
+        return;
+    }
+    let newFolder = new Folder(folderName);
+    newFolder.button = document.createElement('button');
+    notes.push(newFolder);
+
+    newFolder.button.setAttribute("id", id);
+    newFolder.button.setAttribute("class", "folder");
+    newFolder.button.textContent = folderName;
+    filebar.appendChild(newFolder.button);
+    currentID = currentID + 1;
+    // Clear the content of the textarea and set the current note to the new note
 }
 
 function startSpeechToTextForNewNote(newNote) {
