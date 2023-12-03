@@ -265,3 +265,10 @@ function logout(event) {
     localStorage.removeItem('password');
     window.location.href = 'login.html';
 }
+
+function zoomText() {
+    var filesText = document.getElementById('filesText');
+    var currentSize = window.getComputedStyle(filesText).fontSize;
+    var newSize = parseFloat(currentSize) * 1.2; // Increase font size by 20%
+    filesText.style.fontSize = newSize + 'px';
+}
